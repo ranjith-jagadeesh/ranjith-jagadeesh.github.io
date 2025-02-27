@@ -381,7 +381,7 @@
         <div class="container">
             <h2 class="section-title">Get in Touch</h2>
             <div class="contact-form glass-card">
-                <form action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
+                <form id="contactForm" action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -396,9 +396,13 @@
                     </div>
                     <input type="text" name="_honey" style="display:none">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://ranjith-jagadeesh.github.io/thank-you">
                     <button type="submit" class="btn">Send Message</button>
                 </form>
+                <div id="thankYouMessage" style="display: none; text-align: center; padding: 2rem;">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--accent-primary); margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Thank You!</h3>
+                    <p>Your message has been sent successfully. I'll get back to you soon.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -436,6 +440,29 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const form = this;
+            const thankYouMessage = document.getElementById('thankYouMessage');
+            
+            // Submit the form
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => {
+                // Hide the form and show thank you message
+                form.style.display = 'none';
+                thankYouMessage.style.display = 'block';
+                // Reset the form
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+            e.preventDefault();
         });
     </script>
 </body>
