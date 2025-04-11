@@ -3,257 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranjith Jagadees | Software Engineer</title>
+    <title>RANJITH.SYSTEM</title>
     
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>RJ</text></svg>" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>システム</text></svg>" type="image/svg+xml">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="container nav-content">
-            <a href="#" class="logo">RJ</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <!-- Grid overlay -->
+    <div class="grid-overlay"></div>
+
+    <!-- Distortion canvas -->
+    <canvas id="noise-canvas"></canvas>
+
+    <!-- System status bar -->
+    <div class="status-bar">
+        <div class="status-item">SYS.STATUS: ONLINE</div>
+        <div class="status-clock">00:00:00</div>
+    </div>
+
+    <!-- Navigation as terminal commands -->
+    <nav class="terminal-nav">
+        <div class="command-prompt">
+            <span class="prompt-char">></span>
+            <span class="command-text">navigate.to(</span>
+            <div class="command-options">
+                <a href="#home" class="nav-cmd active" data-section="home">"home"</a>
+                <a href="#experience" class="nav-cmd" data-section="experience">"exp"</a>
+                <a href="#skills" class="nav-cmd" data-section="skills">"sys"</a>
+                <a href="#contact" class="nav-cmd" data-section="contact">"connect"</a>
+            </div>
+            <span class="command-text">)</span>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Ranjith<br>Jagadees</h1>
-                <p>Software Engineer with expertise in building innovative solutions and scalable applications.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Professional Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Annalise.ai</h3>
-                    <div class="timeline-date">June 2023 - Present</div>
-                    <p>Software Engineer</p>
+    <main id="viewport">
+        <section id="home" class="viewport-section active">
+            <div class="glitch-grid">
+                <div class="ascii-art">
+                    <!-- ASCII art container -->
                 </div>
-                <div class="timeline-item">
-                    <h3>Foodhub</h3>
-                    <div class="timeline-date">June 2021 - June 2023</div>
-                    <p>Software Engineer</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Corezi</h3>
-                    <div class="timeline-date">August 2019 - June 2021</div>
-                    <p>Software Developer</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Accenture</h3>
-                    <div class="timeline-date">January 2017 - August 2019</div>
-                    <p>Software Engineer</p>
+                <div class="identity-container">
+                    <div class="scanline"></div>
+                    <h1 class="cyber-glitch" data-text="RANJITH">RANJITH</h1>
+                    <h1 class="cyber-glitch" data-text="JAGADEES">JAGADEES</h1>
+                    <div class="role-matrix">
+                        <span class="matrix-char">S</span>
+                        <span class="matrix-char">O</span>
+                        <span class="matrix-char">F</span>
+                        <span class="matrix-char">T</span>
+                        <span class="matrix-char">W</span>
+                        <span class="matrix-char">A</span>
+                        <span class="matrix-char">R</span>
+                        <span class="matrix-char">E</span>
+                        <span class="matrix-char">&nbsp;</span>
+                        <span class="matrix-char">E</span>
+                        <span class="matrix-char">N</span>
+                        <span class="matrix-char">G</span>
+                        <span class="matrix-char">I</span>
+                        <span class="matrix-char">N</span>
+                        <span class="matrix-char">E</span>
+                        <span class="matrix-char">E</span>
+                        <span class="matrix-char">R</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Areas of Expertise</h2>
+        <section id="experience" class="viewport-section">
+            <div class="exp-grid">
+                <div class="section-header">
+                    <h2 class="cyber-text">SYSTEM.EXPERIENCE</h2>
+                    <div class="header-decoration"></div>
+                </div>
+                <div class="timeline-grid">
+                    <div class="exp-node" data-year="2023-NOW">
+                        <div class="node-content">
+                            <div class="company-tag">[ANNALISE.AI]</div>
+                            <div class="role-tag">SOFTWARE.ENGINEER</div>
+                            <div class="time-tag">RUNTIME: 2023-PRESENT</div>
+                        </div>
+                    </div>
+                    <div class="exp-node" data-year="2021-2023">
+                        <div class="node-content">
+                            <div class="company-tag">[FOODHUB]</div>
+                            <div class="role-tag">SOFTWARE.ENGINEER</div>
+                            <div class="time-tag">RUNTIME: 2021-2023</div>
+                        </div>
+                    </div>
+                    <div class="exp-node" data-year="2019-2021">
+                        <div class="node-content">
+                            <div class="company-tag">[COREZI]</div>
+                            <div class="role-tag">SOFTWARE.DEVELOPER</div>
+                            <div class="time-tag">RUNTIME: 2019-2021</div>
+                        </div>
+                    </div>
+                    <div class="exp-node" data-year="2017-2019">
+                        <div class="node-content">
+                            <div class="company-tag">[ACCENTURE]</div>
+                            <div class="role-tag">SOFTWARE.ENGINEER</div>
+                            <div class="time-tag">RUNTIME: 2017-2019</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="viewport-section">
             <div class="skills-grid">
-                <div class="skill-category">
-                    <i class="fas fa-server skill-icon"></i>
-                    <h3>Backend Development</h3>
-                    <p>Node.js, Python, RESTful APIs</p>
+                <div class="section-header">
+                    <h2 class="cyber-text">SYSTEM.CAPABILITIES</h2>
+                    <div class="header-decoration"></div>
                 </div>
-                <div class="skill-category">
-                    <i class="fas fa-tools skill-icon"></i>
-                    <h3>DevOps & Tools</h3>
-                    <p>Docker, AWS, Git, CI/CD</p>
+                <div class="skills-matrix">
+                    <div class="skill-cluster backend">
+                        <div class="cluster-core">
+                            <i class="fas fa-server"></i>
+                            <span>BACKEND.SYS</span>
+                        </div>
+                        <div class="cluster-nodes">
+                            <span class="node">Node.js</span>
+                            <span class="node">Python</span>
+                            <span class="node">REST.APIs</span>
+                        </div>
+                    </div>
+                    <div class="skill-cluster devops">
+                        <div class="cluster-core">
+                            <i class="fas fa-tools"></i>
+                            <span>DEVOPS.SYS</span>
+                        </div>
+                        <div class="cluster-nodes">
+                            <span class="node">Docker</span>
+                            <span class="node">AWS</span>
+                            <span class="node">CI/CD</span>
+                        </div>
+                    </div>
+                    <div class="skill-cluster cloud">
+                        <div class="cluster-core">
+                            <i class="fas fa-cloud"></i>
+                            <span>CLOUD.SYS</span>
+                        </div>
+                        <div class="cluster-nodes">
+                            <span class="node">EC2</span>
+                            <span class="node">Lambda</span>
+                            <span class="node">S3</span>
+                        </div>
+                    </div>
+                    <div class="skill-cluster database">
+                        <div class="cluster-core">
+                            <i class="fas fa-database"></i>
+                            <span>DATA.SYS</span>
+                        </div>
+                        <div class="cluster-nodes">
+                            <span class="node">SQL</span>
+                            <span class="node">MongoDB</span>
+                            <span class="node">Redis</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-form">
-                <form id="contactForm" action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+        <section id="contact" class="viewport-section">
+            <div class="contact-grid">
+                <div class="section-header">
+                    <h2 class="cyber-text">SYSTEM.CONNECT</h2>
+                    <div class="header-decoration"></div>
+                </div>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="terminal-title">connection.establish</span>
+                        <div class="terminal-controls">
+                            <span class="control"></span>
+                            <span class="control"></span>
+                            <span class="control"></span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="terminal-body">
+                        <div class="terminal-output" id="terminalOutput">
+                            <div class="line">Initializing connection protocol...</div>
+                            <div class="line">Select communication channel:</div>
+                        </div>
+                        <div class="social-protocols">
+                            <a href="https://www.linkedin.com/in/ranjith-jagadees/" target="_blank" class="protocol">
+                                <i class="fab fa-linkedin"></i>
+                                <span class="protocol-name">LINKEDIN.CONNECT</span>
+                            </a>
+                            <a href="https://github.com/ranjith-jagadeesh" target="_blank" class="protocol">
+                                <i class="fab fa-github"></i>
+                                <span class="protocol-name">GITHUB.CONNECT</span>
+                            </a>
+                        </div>
+                        <form id="contactForm" class="terminal-form" action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
+                            <div class="input-line">
+                                <span class="prompt">></span>
+                                <input type="text" id="name" name="name" required placeholder="enter.name">
+                            </div>
+                            <div class="input-line">
+                                <span class="prompt">></span>
+                                <input type="email" id="email" name="email" required placeholder="enter.email">
+                            </div>
+                            <div class="input-line">
+                                <span class="prompt">></span>
+                                <textarea id="message" name="message" required placeholder="enter.message"></textarea>
+                            </div>
+                            <input type="text" name="_honey" style="display:none">
+                            <input type="hidden" name="_captcha" value="false">
+                            <button type="submit" class="terminal-btn">
+                                <span class="btn-text">EXECUTE.SEND</span>
+                                <div class="btn-glitch"></div>
+                            </button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <input type="text" name="_honey" style="display:none">
-                    <input type="hidden" name="_captcha" value="false">
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-                <div id="thankYouMessage" style="display: none; text-align: center; padding: 2rem;">
-                    <h3>Thank You!</h3>
-                    <p>Your message has been sent successfully.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/ranjith-jagadees/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/ranjith-jagadeesh" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-            <p>&copy; 2024 Ranjith Jagadees. All rights reserved.</p>
-            <div style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.5rem;">
-                    <i>"I'm a backend dev who doesn't do CSS... This site was crafted by Claude"</i> 
-                    <i class="fas fa-robot" style="margin-left: 5px;"></i>
-                    <i class="fas fa-heart" style="margin-left: 5px; font-size: 0.8rem; color: #ef4444;"></i>
-                </p>
-            </div>
-        </div>
-    </footer>
+        </section>
+    </main>
 
     <script>
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize noise canvas
+            const canvas = document.getElementById('noise-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            function createNoise() {
+                const imageData = ctx.createImageData(canvas.width, canvas.height);
+                const data = imageData.data;
+                
+                for (let i = 0; i < data.length; i += 4) {
+                    const noise = Math.random() * 255;
+                    data[i] = data[i + 1] = data[i + 2] = noise;
+                    data[i + 3] = 15; // Alpha for subtle effect
+                }
+                
+                ctx.putImageData(imageData, 0, 0);
+            }
+            
+            function animateNoise() {
+                createNoise();
+                requestAnimationFrame(animateNoise);
+            }
+            
+            animateNoise();
+
+            // Update system clock
+            function updateClock() {
+                const clock = document.querySelector('.status-clock');
+                const now = new Date();
+                const time = now.toTimeString().split(' ')[0];
+                clock.textContent = time;
+            }
+            
+            setInterval(updateClock, 1000);
+            updateClock();
+
+            // Navigation handling
+            const viewport = document.getElementById('viewport');
+            const sections = document.querySelectorAll('.viewport-section');
+            const navLinks = document.querySelectorAll('.nav-cmd');
+            
+            function activateSection(sectionId) {
+                const targetSection = document.getElementById(sectionId);
+                if (!targetSection) return;
+
+                sections.forEach(section => section.classList.remove('active'));
+                navLinks.forEach(link => link.classList.remove('active'));
+
+                targetSection.classList.add('active');
+                const activeLink = document.querySelector(`[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('href').substring(1);
+                    activateSection(sectionId);
+                });
+            });
+
+            // Scroll handling with throttling
+            let lastScrollTime = 0;
+            const scrollThreshold = 50;
+
+            viewport.addEventListener('scroll', () => {
+                const now = Date.now();
+                if (now - lastScrollTime < scrollThreshold) return;
+                lastScrollTime = now;
+
+                const viewportRect = viewport.getBoundingClientRect();
+                const viewportMiddle = viewportRect.top + (viewportRect.height / 2);
+                
+                let closestSection = null;
+                let minDistance = Infinity;
+                
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const distance = Math.abs(rect.top + (rect.height / 2) - viewportMiddle);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestSection = section;
+                    }
+                });
+                
+                if (closestSection && !closestSection.classList.contains('active')) {
+                    sections.forEach(section => section.classList.remove('active'));
+                    navLinks.forEach(link => link.classList.remove('active'));
                     
-                    // Add floating animation to skill icons when visible
-                    if (entry.target.classList.contains('skill-category')) {
-                        entry.target.querySelector('.skill-icon').style.animation = 'float 3s ease-in-out infinite';
+                    closestSection.classList.add('active');
+                    const activeLink = document.querySelector(`[href="#${closestSection.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
                     }
                 }
-            });
-        }, { threshold: 0.1 });
+            }, { passive: true });
 
-        // Observe timeline items and skill categories
-        document.querySelectorAll('.timeline-item, .skill-category').forEach((el) => {
-            observer.observe(el);
-        });
-
-        // Parallax effect for hero section
-        document.addEventListener('mousemove', (e) => {
-            const hero = document.querySelector('.hero');
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
+            // Matrix effect for role text
+            const matrixChars = document.querySelectorAll('.matrix-char');
             
-            hero.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
-        });
-
-        // Smooth hover effect for buttons
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('mousemove', (e) => {
-                const rect = button.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                button.style.setProperty('--x', `${x}px`);
-                button.style.setProperty('--y', `${y}px`);
-            });
-        });
-
-        // Form submission with animation
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = this;
-            const thankYouMessage = document.getElementById('thankYouMessage');
-            const submitButton = form.querySelector('.btn');
-            
-            // Add loading state
-            submitButton.style.pointerEvents = 'none';
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form)
-            })
-            .then(response => {
-                // Animate form transition
-                form.style.transform = 'translateX(-100%)';
-                form.style.opacity = '0';
+            matrixChars.forEach((char, index) => {
                 setTimeout(() => {
-                    form.style.display = 'none';
-                    thankYouMessage.style.display = 'block';
-                    thankYouMessage.style.animation = 'fadeUp 0.8s ease forwards';
-                }, 300);
-                form.reset();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                submitButton.innerHTML = 'Send Message';
-                submitButton.style.pointerEvents = 'auto';
+                    char.classList.add('revealed');
+                }, index * 100);
             });
-        });
 
-        // Smooth scrolling with progress indicator
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                // Highlight active nav item
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.style.opacity = '0.5';
-                });
-                this.style.opacity = '1';
-                
-                // Smooth scroll
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Update nav links on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
+            // Form handling with terminal-style feedback
+            const contactForm = document.getElementById('contactForm');
+            const terminalOutput = document.getElementById('terminalOutput');
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= sectionTop - 100) {
-                    navLinks.forEach(link => {
-                        if (link.getAttribute('href').slice(1) === section.getAttribute('id')) {
-                            link.style.opacity = '1';
-                        } else {
-                            link.style.opacity = '0.5';
-                        }
-                    });
-                }
-            });
-        });
-
-        // Initialize animations
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add pulse animation to logo
-            document.querySelector('.logo').style.animation = 'pulse 2s ease-in-out infinite';
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    appendTerminalLine('Initiating transmission...');
+                    
+                    try {
+                        await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: new FormData(contactForm)
+                        });
+                        
+                        appendTerminalLine('Transmission successful.');
+                        appendTerminalLine('Connection established.');
+                        contactForm.reset();
+                    } catch (error) {
+                        appendTerminalLine('ERROR: Transmission failed.');
+                        appendTerminalLine('Retrying connection...');
+                    }
+                });
+            }
             
-            // Animate social icons on hover
-            document.querySelectorAll('.social-links a').forEach(link => {
-                link.addEventListener('mouseenter', () => {
-                    link.style.animation = 'float 0.6s ease-in-out';
-                });
-                link.addEventListener('mouseleave', () => {
-                    link.style.animation = 'none';
-                });
-            });
+            function appendTerminalLine(text) {
+                const line = document.createElement('div');
+                line.className = 'line';
+                line.textContent = text;
+                terminalOutput.appendChild(line);
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            }
         });
     </script>
 </body>
