@@ -9,251 +9,355 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>RJ</text></svg>" type="image/svg+xml">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Using a more modern/elegant font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="container nav-content">
-            <a href="#" class="logo">RJ</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+    <!-- Navigation might be redesigned significantly, maybe side dots or minimal -->
+    <nav class="side-nav">
+        <ul>
+            <li><a href="#home" data-section="home" class="nav-dot active-dot"></a></li>
+            <li><a href="#experience" data-section="experience" class="nav-dot"></a></li>
+            <li><a href="#skills" data-section="skills" class="nav-dot"></a></li>
+            <li><a href="#contact" data-section="contact" class="nav-dot"></a></li>
+        </ul>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
+    <main id="page-container">
+        
+        <section id="home" class="page-section active-section">
+            <div class="section-content hero-content">
+                 <!-- Keep ::before/::after for background effects -->
                 <h1>Ranjith<br>Jagadees</h1>
-                <p>Software Engineer with expertise in building innovative solutions and scalable applications.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Professional Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Annalise.ai</h3>
-                    <div class="timeline-date">June 2023 - Present</div>
-                    <p>Software Engineer</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Foodhub</h3>
-                    <div class="timeline-date">June 2021 - June 2023</div>
-                    <p>Software Engineer</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Corezi</h3>
-                    <div class="timeline-date">August 2019 - June 2021</div>
-                    <p>Software Developer</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Accenture</h3>
-                    <div class="timeline-date">January 2017 - August 2019</div>
-                    <p>Software Engineer</p>
+                <p class="subtitle">Software Engineer</p>
+                <p class="tagline">Building innovative digital experiences.</p>
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Areas of Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <i class="fas fa-server skill-icon"></i>
-                    <h3>Backend Development</h3>
-                    <p>Node.js, Python, RESTful APIs</p>
-                </div>
-                <div class="skill-category">
-                    <i class="fas fa-tools skill-icon"></i>
-                    <h3>DevOps & Tools</h3>
-                    <p>Docker, AWS, Git, CI/CD</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-form">
-                <form id="contactForm" action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+        <section id="experience" class="page-section">
+            <div class="section-content">
+                <h2 class="section-title">My Journey</h2>
+                <div class="timeline-container">
+                    <!-- Timeline items can be animated uniquely -->
+                    <div class="timeline-item" data-year="Present">
+                        <div class="timeline-content">
+                            <h3>Annalise.ai</h3>
+                            <span class="timeline-role">Software Engineer</span>
+                            <span class="timeline-duration">June 2023 - Present</span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="timeline-item" data-year="2023">
+                        <div class="timeline-content">
+                            <h3>Foodhub</h3>
+                            <span class="timeline-role">Software Engineer</span>
+                            <span class="timeline-duration">June 2021 - June 2023</span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                     <div class="timeline-item" data-year="2021">
+                        <div class="timeline-content">
+                            <h3>Corezi</h3>
+                            <span class="timeline-role">Software Developer</span>
+                             <span class="timeline-duration">August 2019 - June 2021</span>
+                        </div>
                     </div>
-                    <input type="text" name="_honey" style="display:none">
-                    <input type="hidden" name="_captcha" value="false">
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-                <div id="thankYouMessage" style="display: none; text-align: center; padding: 2rem;">
-                    <h3>Thank You!</h3>
-                    <p>Your message has been sent successfully.</p>
+                    <div class="timeline-item" data-year="2019">
+                        <div class="timeline-content">
+                            <h3>Accenture</h3>
+                             <span class="timeline-role">Software Engineer</span>
+                             <span class="timeline-duration">January 2017 - August 2019</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/ranjith-jagadees/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/ranjith-jagadeesh" target="_blank"><i class="fab fa-github"></i></a>
+        <section id="skills" class="page-section">
+            <div class="section-content">
+                 <h2 class="section-title">Expertise</h2>
+                 <div class="skills-visualizer">
+                    <!-- Skills could be represented more visually, e.g., orbiting elements -->
+                    <div class="skill-orbit">
+                        <div class="skill-item backend">
+                            <i class="fas fa-server"></i>
+                            <span>Backend</span>
+                            <div class="skill-details">Node.js, Python, REST APIs</div>
+                        </div>
+                         <div class="skill-item devops">
+                             <i class="fas fa-tools"></i>
+                             <span>DevOps</span>
+                             <div class="skill-details">Docker, AWS, Git, CI/CD</div>
+                        </div>
+                         <div class="skill-item cloud">
+                             <i class="fas fa-cloud"></i>
+                             <span>Cloud</span>
+                             <div class="skill-details">AWS (EC2, S3, Lambda), Serverless</div>
+                         </div>
+                         <div class="skill-item database">
+                             <i class="fas fa-database"></i>
+                             <span>Databases</span>
+                             <div class="skill-details">SQL, NoSQL (MongoDB)</div>
+                         </div>
+                        <!-- Add more skills as needed -->
+                    </div>
+                 </div>
             </div>
-            <p>&copy; 2024 Ranjith Jagadees. All rights reserved.</p>
-            <div style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.5rem;">
-                    <i>"I'm a backend dev who doesn't do CSS... This site was crafted by Claude"</i> 
-                    <i class="fas fa-robot" style="margin-left: 5px;"></i>
-                    <i class="fas fa-heart" style="margin-left: 5px; font-size: 0.8rem; color: #ef4444;"></i>
-                </p>
-            </div>
-        </div>
-    </footer>
+        </section>
+
+        <section id="contact" class="page-section">
+             <div class="section-content contact-content">
+                <h2 class="section-title">Connect</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <p>Interested in collaborating or have a question?</p>
+                        <p>Reach out via the form or connect on social media.</p>
+                         <div class="social-links-contact">
+                             <a href="https://www.linkedin.com/in/ranjith-jagadees/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                             <a href="https://github.com/ranjith-jagadeesh" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                         </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <form id="contactForm" action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" required placeholder=" ">
+                                <label for="name">Name</label>
+                             </div>
+                            <div class="form-group">
+                                 <input type="email" id="email" name="email" required placeholder=" ">
+                                 <label for="email">Email</label>
+                             </div>
+                             <div class="form-group">
+                                 <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                                 <label for="message">Message</label>
+                            </div>
+                            <input type="text" name="_honey" style="display:none">
+                            <input type="hidden" name="_captcha" value="false">
+                            <button type="submit" class="btn">Send <i class="fas fa-paper-plane"></i></button>
+                        </form>
+                        <div id="thankYouMessage" class="thank-you-message" style="display: none;">
+                             <h3>Thank You!</h3>
+                            <p>Your message is on its way.</p>
+                         </div>
+                    </div>
+                </div>
+             </div>
+         </section>
+         
+         <!-- Footer integrated or redesigned -->
+         <footer class="site-footer">
+             <div class="footer-content">
+                <p class="copyright">&copy; <span id="current-year"></span> Ranjith Jagadees. All rights reserved.</p>
+                <p class="design-credit">
+                    <i>"Creativity is intelligence having fun." - Design Assisted by AI</i> 
+                    <i class="fas fa-robot"></i> <i class="fas fa-wand-magic-sparkles"></i>
+                 </p>
+             </div>
+        </footer>
+
+    </main> <!-- End #page-container -->
+
+    <!-- Background elements for visual effects -->
+    <div class="background-elements">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
 
     <script>
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Add floating animation to skill icons when visible
-                    if (entry.target.classList.contains('skill-category')) {
-                        entry.target.querySelector('.skill-icon').style.animation = 'float 3s ease-in-out infinite';
-                    }
-                }
-            });
-        }, { threshold: 0.1 });
-
-        // Observe timeline items and skill categories
-        document.querySelectorAll('.timeline-item, .skill-category').forEach((el) => {
-            observer.observe(el);
-        });
-
-        // Parallax effect for hero section
-        document.addEventListener('mousemove', (e) => {
-            const hero = document.querySelector('.hero');
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            hero.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
-        });
-
-        // Smooth hover effect for buttons
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('mousemove', (e) => {
-                const rect = button.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                button.style.setProperty('--x', `${x}px`);
-                button.style.setProperty('--y', `${y}px`);
-            });
-        });
-
-        // Form submission with animation
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = this;
-            const thankYouMessage = document.getElementById('thankYouMessage');
-            const submitButton = form.querySelector('.btn');
-            
-            // Add loading state
-            submitButton.style.pointerEvents = 'none';
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form)
-            })
-            .then(response => {
-                // Animate form transition
-                form.style.transform = 'translateX(-100%)';
-                form.style.opacity = '0';
-                setTimeout(() => {
-                    form.style.display = 'none';
-                    thankYouMessage.style.display = 'block';
-                    thankYouMessage.style.animation = 'fadeUp 0.8s ease forwards';
-                }, 300);
-                form.reset();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                submitButton.innerHTML = 'Send Message';
-                submitButton.style.pointerEvents = 'auto';
-            });
-        });
-
-        // Smooth scrolling with progress indicator
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                // Highlight active nav item
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.style.opacity = '0.5';
-                });
-                this.style.opacity = '1';
-                
-                // Smooth scroll
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Update nav links on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= sectionTop - 100) {
-                    navLinks.forEach(link => {
-                        if (link.getAttribute('href').slice(1) === section.getAttribute('id')) {
-                            link.style.opacity = '1';
-                        } else {
-                            link.style.opacity = '0.5';
-                        }
-                    });
-                }
-            });
-        });
-
-        // Initialize animations
         document.addEventListener('DOMContentLoaded', () => {
-            // Add pulse animation to logo
-            document.querySelector('.logo').style.animation = 'pulse 2s ease-in-out infinite';
-            
-            // Animate social icons on hover
-            document.querySelectorAll('.social-links a').forEach(link => {
-                link.addEventListener('mouseenter', () => {
-                    link.style.animation = 'float 0.6s ease-in-out';
-                });
-                link.addEventListener('mouseleave', () => {
-                    link.style.animation = 'none';
+            const sections = document.querySelectorAll('.page-section');
+            const navDots = document.querySelectorAll('.nav-dot');
+            const pageContainer = document.getElementById('page-container');
+            let currentSectionIndex = 0;
+            let isScrolling = false;
+            const scrollThreshold = 50; // Sensitivity for scroll detection
+            let touchStartY = 0;
+
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // --- Navigation and Section Activation (Simplified for click handling) ---
+            function scrollToSection(index) {
+                if (index < 0 || index >= sections.length) return;
+                
+                isScrolling = true; // Prevent conflicting observer updates during click-scroll
+                
+                const targetSection = sections[index];
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Let the observer handle class updates, but reset isScrolling after scroll likely finishes
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 1000); // Adjust timeout if scroll duration is longer
+            }
+
+            // Nav dot clicks
+            navDots.forEach((dot, index) => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Removed isScrolling check here, allow clicking even if observer is mid-update?
+                    // Or keep it if spam-clicking causes issues
+                    scrollToSection(index);
                 });
             });
+            
+            // --- Scroll/Wheel/Touch Handling for Section Navigation (Removed) ---
+            // Native scroll + CSS Snap handles this now.
+            // Listeners below are just for reference or potential future additions.
+
+            // // Debounce wheel events
+            // let wheelTimeout;
+            // window.addEventListener('wheel', (e) => {
+            //     // e.preventDefault(); // Prevent default scrolling - REMOVED
+            //     // clearTimeout(wheelTimeout);
+            //     // wheelTimeout = setTimeout(() => {
+            //     //      handleScrollIntent(e.deltaY); // REMOVE THIS CALL
+            //     // }, 50); 
+            // }, { passive: true }); // Can likely make passive: true now
+
+            // // Touch events
+            // window.addEventListener('touchstart', (e) => {
+            //      touchStartY = e.touches[0].clientY;
+            // }, { passive: true });
+
+            // window.addEventListener('touchmove', (e) => {
+            //      // if (isScrolling) return; // Still might need isScrolling if clicks are active
+            //      const touchEndY = e.touches[0].clientY;
+            //      const deltaY = touchStartY - touchEndY; // Inverted compared to wheel delta
+
+            //     // Need a larger threshold for touch to avoid accidental swipes
+            //     // if (Math.abs(deltaY) > scrollThreshold * 1.5) { 
+            //     //     handleScrollIntent(deltaY > 0 ? scrollThreshold + 1 : -scrollThreshold -1); // REMOVE THIS CALL
+            //     //     touchStartY = touchEndY; // Reset start position to prevent rapid multi-scrolls
+            //     // }
+            //  }, { passive: true });
+
+
+            // --- Intersection Observer for Section Visibility & Animations ---
+            const sectionObserver = new IntersectionObserver((entries) => {
+                 entries.forEach(entry => {
+                    const sectionId = entry.target.id;
+                    const correspondingDot = document.querySelector(`.side-nav a[href="#${sectionId}"]`);
+                    
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.6) { // Use threshold
+                        if (isScrolling) return; // Don't update classes if scrolling via click
+                        
+                        // Update active classes
+                        sections.forEach(s => s.classList.remove('active-section'));
+                        navDots.forEach(d => d.classList.remove('active-dot'));
+                        
+                        entry.target.classList.add('active-section');
+                        if (correspondingDot) {
+                             correspondingDot.classList.add('active-dot');
+                        }
+                        
+                        // Add class to trigger animations within the active section
+                        entry.target.classList.add('in-view'); 
+                        // Example: Animate timeline items
+                        if (entry.target.id === 'experience') {
+                            entry.target.querySelectorAll('.timeline-item').forEach((item, index) => {
+                                item.style.transitionDelay = `${index * 0.15}s`;
+                                item.classList.add('visible');
+                             });
+                        }
+                        // Example: Animate skill items
+                        if (entry.target.id === 'skills') {
+                             entry.target.querySelectorAll('.skill-item').forEach((item, index) => {
+                                item.style.transitionDelay = `${index * 0.1}s`;
+                                item.classList.add('visible');
+                             });
+                        }
+                    } else {
+                         // Optional: Reset animations when section is not active/visible
+                         // entry.target.classList.remove('in-view');
+                         // Reset specific item animations if needed
+                         // if (entry.target.id === 'experience') {
+                         //    entry.target.querySelectorAll('.timeline-item').forEach(item => item.classList.remove('visible'));
+                         // }
+                         // if (entry.target.id === 'skills') {
+                         //    entry.target.querySelectorAll('.skill-item').forEach(item => item.classList.remove('visible'));
+                         // }
+                     }
+                 });
+             }, { threshold: 0.6 }); // Trigger when 60% of the section is visible
+
+            sections.forEach(section => {
+                 sectionObserver.observe(section);
+            });
+
+            // --- Form Submission ---
+            const contactForm = document.getElementById('contactForm');
+            const thankYouMessage = document.getElementById('thankYouMessage');
+            const formContainer = document.querySelector('.contact-form-container'); // Target the container
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const form = this;
+                    const submitButton = form.querySelector('.btn');
+                    const submitButtonIcon = submitButton.querySelector('i');
+                    const originalButtonText = 'Send '; // Store original text excluding icon
+
+                    // Loading state
+                    submitButton.disabled = true;
+                    submitButtonIcon.classList.remove('fa-paper-plane');
+                    submitButtonIcon.classList.add('fa-spinner', 'fa-spin');
+                    submitButton.firstChild.textContent = 'Sending '; // Update text part only
+
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json' // Recommended by FormSubmit for AJAX
+                        }
+                    })
+                    .then(response => response.json()) // Expect JSON response from FormSubmit
+                    .then(data => {
+                        if (data.ok || response.ok) { // Check FormSubmit success or general HTTP success
+                            // Animate form out, thank you message in
+                            form.style.opacity = '0';
+                            form.style.transform = 'translateY(20px)'; 
+                            setTimeout(() => {
+                                form.style.display = 'none';
+                                thankYouMessage.style.display = 'block';
+                                thankYouMessage.style.opacity = '1';
+                                thankYouMessage.style.transform = 'translateY(0)';
+                            }, 300); // Match CSS transition duration
+                        } else {
+                             // Handle submission error (e.g., show an error message)
+                             console.error('Form submission error:', data);
+                             throw new Error('Submission failed'); // Trigger catch block
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Reset button state on error
+                        submitButton.disabled = false;
+                        submitButtonIcon.classList.remove('fa-spinner', 'fa-spin');
+                        submitButtonIcon.classList.add('fa-paper-plane');
+                        submitButton.firstChild.textContent = originalButtonText; 
+                        // Optionally show an error message to the user
+                        alert('Sorry, there was an issue sending your message. Please try again later.');
+                    });
+                });
+            }
+
+            // --- Initial Setup ---
+             // Add slight delay for initial animations
+             setTimeout(() => {
+                 document.body.classList.add('loaded');
+                 // Observer will handle setting the first section active/in-view automatically on load
+             }, 100);
+
+            // Add floating animation to background shapes
+             document.querySelectorAll('.background-elements .shape').forEach(shape => {
+                shape.style.animation = `float ${Math.random() * 4 + 4}s ease-in-out infinite alternate`;
+             });
+
         });
     </script>
 </body>
