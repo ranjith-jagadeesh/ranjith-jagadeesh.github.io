@@ -276,12 +276,8 @@
                 const targetSection = document.getElementById(sectionId);
                 if (!targetSection) return;
 
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                });
+                sections.forEach(section => section.classList.remove('active'));
+                navLinks.forEach(link => link.classList.remove('active'));
 
                 targetSection.classList.add('active');
                 const activeLink = document.querySelector(`[href="#${sectionId}"]`);
@@ -295,9 +291,18 @@
                 });
             }
 
-            // Optimized scroll handling
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('href').substring(1);
+                    activateSection(sectionId);
+                });
+            });
+
+            // Scroll handling with throttling
             let lastScrollTime = 0;
-            const scrollThreshold = 50; // Minimum time between scroll updates in ms
+            const scrollThreshold = 50;
 
             viewport.addEventListener('scroll', () => {
                 const now = Date.now();
@@ -307,7 +312,6 @@
                 const viewportRect = viewport.getBoundingClientRect();
                 const viewportMiddle = viewportRect.top + (viewportRect.height / 2);
                 
-                // Find the section closest to the middle of the viewport
                 let closestSection = null;
                 let minDistance = Infinity;
                 
@@ -330,16 +334,7 @@
                         activeLink.classList.add('active');
                     }
                 }
-            }, { passive: true }); // Optimize scroll performance
-
-            // Handle navigation clicks
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const sectionId = link.getAttribute('href').substring(1);
-                    activateSection(sectionId);
-                });
-            });
+            }, { passive: true });
 
             // Matrix effect for role text
             const matrixChars = document.querySelectorAll('.matrix-char');
