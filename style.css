@@ -185,7 +185,7 @@ html, body {
     align-items: center;
     justify-content: center;
     scroll-snap-align: start;
-    scroll-snap-stop: always; /* Forces a stop at each section */
+    scroll-snap-stop: normal;
     padding: 4rem 2rem;
     position: relative;
     opacity: 0;
