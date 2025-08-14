@@ -3,409 +3,804 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RANJITH.SYSTEM</title>
+    <title>Ranjith Kumar - Senior Software Engineer</title>
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>システム</text></svg>" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" type="image/svg+xml">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Grid overlay -->
-    <div class="grid-overlay"></div>
-
-    <!-- Distortion canvas -->
-    <canvas id="noise-canvas"></canvas>
-
-    <!-- System status bar -->
-    <div class="status-bar">
-        <div class="status-item">SYS.STATUS: ONLINE</div>
-        <div class="status-clock">00:00:00</div>
-    </div>
-
-    <!-- Navigation as terminal commands -->
-    <nav class="terminal-nav">
-        <div class="command-prompt">
-            <span class="prompt-char">></span>
-            <span class="command-text">navigate.to(</span>
-            <div class="command-options">
-                <a href="#home" class="nav-cmd active" data-section="home">"home"</a>
-                <a href="#experience" class="nav-cmd" data-section="experience">"exp"</a>
-                <a href="#skills" class="nav-cmd" data-section="skills">"sys"</a>
-                <a href="#blogs" class="nav-cmd" data-section="blogs">"blog"</a>
-                <a href="#contact" class="nav-cmd" data-section="contact">"connect"</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Ranjith Kumar</span>
             </div>
-            <span class="command-text">)</span>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#blog" class="nav-link">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </nav>
 
-    <main id="viewport">
-        <section id="home" class="viewport-section active">
-            <div class="glitch-grid">
-                <div class="ascii-art">
-                    <!-- ASCII art container -->
-                </div>
-                <div class="identity-container">
-                    <div class="scanline"></div>
-                    <h1 class="cyber-glitch" data-text="RANJITH">RANJITH</h1>
-                    <h1 class="cyber-glitch" data-text="JAGADEES">JAGADEES</h1>
-                    <div class="role-matrix">
-                        <span class="matrix-char">S</span>
-                        <span class="matrix-char">O</span>
-                        <span class="matrix-char">F</span>
-                        <span class="matrix-char">T</span>
-                        <span class="matrix-char">W</span>
-                        <span class="matrix-char">A</span>
-                        <span class="matrix-char">R</span>
-                        <span class="matrix-char">E</span>
-                        <span class="matrix-char">&nbsp;</span>
-                        <span class="matrix-char">E</span>
-                        <span class="matrix-char">N</span>
-                        <span class="matrix-char">G</span>
-                        <span class="matrix-char">I</span>
-                        <span class="matrix-char">N</span>
-                        <span class="matrix-char">E</span>
-                        <span class="matrix-char">E</span>
-                        <span class="matrix-char">R</span>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="fade-in">Hello, I'm</span>
+                        <span class="name-highlight fade-in-delay">Ranjith Kumar</span>
+                    </h1>
+                    <p class="hero-subtitle fade-in-delay-2">
+                        Senior Software Engineer specializing in scalable cloud architectures and backend systems
+                    </p>
+                    <div class="hero-location fade-in-delay-2">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Chennai, India
+                    </div>
+                    <div class="hero-buttons fade-in-delay-3">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                        <a href="#about" class="btn btn-secondary">
+                            <i class="fas fa-user"></i>
+                            Learn More
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="experience" class="viewport-section">
-            <div class="exp-grid">
-                <div class="section-header">
-                    <h2 class="cyber-text">SYSTEM.EXPERIENCE</h2>
-                    <div class="header-decoration"></div>
-                </div>
-                <div class="timeline-grid">
-                    <div class="exp-node" data-year="2023-NOW">
-                        <div class="node-content">
-                            <div class="company-tag">[ANNALISE.AI]</div>
-                            <div class="role-tag">SOFTWARE.ENGINEER</div>
-                            <div class="time-tag">RUNTIME: 2023-PRESENT</div>
-                        </div>
-                    </div>
-                    <div class="exp-node" data-year="2021-2023">
-                        <div class="node-content">
-                            <div class="company-tag">[FOODHUB]</div>
-                            <div class="role-tag">SOFTWARE.ENGINEER</div>
-                            <div class="time-tag">RUNTIME: 2021-2023</div>
-                        </div>
-                    </div>
-                    <div class="exp-node" data-year="2019-2021">
-                        <div class="node-content">
-                            <div class="company-tag">[COREZI]</div>
-                            <div class="role-tag">SOFTWARE.DEVELOPER</div>
-                            <div class="time-tag">RUNTIME: 2019-2021</div>
-                        </div>
-                    </div>
-                    <div class="exp-node" data-year="2017-2019">
-                        <div class="node-content">
-                            <div class="company-tag">[ACCENTURE]</div>
-                            <div class="role-tag">SOFTWARE.ENGINEER</div>
-                            <div class="time-tag">RUNTIME: 2017-2019</div>
+                <div class="hero-visual">
+                    <div class="floating-card">
+                        <div class="card-content">
+                            <div class="code-snippet">
+                                <div class="code-line">
+                                    <span class="code-comment">// Building scalable solutions</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-keyword">const</span> 
+                                    <span class="code-variable">skills</span> 
+                                    <span class="code-operator">=</span> 
+                                    <span class="code-array">["AWS", "Node.js", "TypeScript"]</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-keyword">const</span> 
+                                    <span class="code-variable">experience</span> 
+                                    <span class="code-operator">=</span> 
+                                    <span class="code-string">"7+ years"</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-comment">// Passionate about cloud architecture</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills" class="viewport-section">
-            <div class="skills-grid">
-                <div class="section-header">
-                    <h2 class="cyber-text">SYSTEM.CAPABILITIES</h2>
-                    <div class="header-decoration"></div>
-                </div>
-                <div class="skills-matrix">
-                    <div class="skill-cluster backend">
-                        <div class="cluster-core">
-                            <i class="fas fa-server"></i>
-                            <span>BACKEND.SYS</span>
-                        </div>
-                        <div class="cluster-nodes">
-                            <span class="node">Node.js</span>
-                            <span class="node">Python</span>
-                            <span class="node">REST.APIs</span>
-                        </div>
-                    </div>
-                    <div class="skill-cluster devops">
-                        <div class="cluster-core">
-                            <i class="fas fa-tools"></i>
-                            <span>DEVOPS.SYS</span>
-                        </div>
-                        <div class="cluster-nodes">
-                            <span class="node">Docker</span>
-                            <span class="node">AWS</span>
-                            <span class="node">CI/CD</span>
-                        </div>
-                    </div>
-                    <div class="skill-cluster cloud">
-                        <div class="cluster-core">
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Senior Software Engineer with expertise in cloud architecture and scalable systems</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        I'm a seasoned software professional with a proven track record in planning and building web applications, 
+                        backend server operations using Node.js. I possess strong expertise in creating backend server applications 
+                        with various AWS services, setting up cloud architectures using AWS. My experience includes working with 
+                        various AWS services such as CloudFormation, Cloud Development Kit (CDK), Lambda, CloudWatch, API Gateway, 
+                        S3, CloudFront, Route53, RDS Aurora, DynamoDB, AppSync, DMS, Glue, and IAM.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
                             <i class="fas fa-cloud"></i>
-                            <span>CLOUD.SYS</span>
+                            <div class="highlight-content">
+                                <h4>Cloud Architecture</h4>
+                                <p>Extensive experience with AWS services and cloud-native solutions</p>
+                            </div>
                         </div>
-                        <div class="cluster-nodes">
-                            <span class="node">EC2</span>
-                            <span class="node">Lambda</span>
-                            <span class="node">S3</span>
+                        <div class="highlight-item">
+                            <i class="fas fa-code"></i>
+                            <div class="highlight-content">
+                                <h4>Backend Development</h4>
+                                <p>Specialized in Node.js, TypeScript, and scalable server architectures</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div class="highlight-content">
+                                <h4>Performance Optimization</h4>
+                                <p>Proven track record of optimizing applications and reducing costs</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="skill-cluster database">
-                        <div class="cluster-core">
-                            <i class="fas fa-database"></i>
-                            <span>DATA.SYS</span>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">7+</div>
+                            <div class="stat-label">Years Experience</div>
                         </div>
-                        <div class="cluster-nodes">
-                            <span class="node">SQL</span>
-                            <span class="node">MongoDB</span>
-                            <span class="node">Redis</span>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Companies</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="about-languages">
+                        <h4>Languages</h4>
+                        <div class="language-item">
+                            <span>English</span>
+                            <span class="proficiency">Full Professional</span>
+                        </div>
+                        <div class="language-item">
+                            <span>Tamil</span>
+                            <span class="proficiency">Native</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="blogs" class="viewport-section">
-            <div class="blogs-grid">
-                <div class="section-header">
-                    <h2 class="cyber-text">SYSTEM.BLOGS</h2>
-                    <div class="header-decoration"></div>
-                </div>
-                <div class="blogs-list">
-                    <a class="blog-card" href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank">
-                        <div class="blog-title"><i class="fab fa-medium"></i> From Muscle to Mind to Machine: The Evolution of Human Value</div>
-                        <div class="blog-desc">Discover the evolution of human value from physical strength to intelligence, and now, in the age of AI, to our capacity to adapt, create, and collaborate with machines.</div>
-                        <span class="blog-link">Read more &rarr;</span>
-                    </a>
-                    <a class="blog-card" href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank">
-                        <div class="blog-title"><i class="fab fa-medium"></i> Fix AWS CDK Export: Export name cannot be updated as it is in use by stack name</div>
-                        <div class="blog-desc">A practical solution to a common AWS CDK error when managing CloudFormation exports across stacks.</div>
-                        <span class="blog-link">Read more &rarr;</span>
-                    </a>
-                    <a class="blog-card" href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank">
-                        <div class="blog-title"><i class="fab fa-medium"></i> CDK: How to move resources from one stack to another stack</div>
-                        <div class="blog-desc">Step-by-step guide to safely migrating AWS resources between CDK stacks without downtime.</div>
-                        <span class="blog-link">Read more &rarr;</span>
-                    </a>
-                </div>
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">Building innovative solutions across diverse industries</p>
             </div>
-        </section>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="card-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="company-details">
+                                <h3 class="company-name">Annalise.ai</h3>
+                                <p class="company-industry">AI Medical Imaging</p>
+                            </div>
+                        </div>
+                        <div class="employment-period">
+                            <span class="period-badge current">2023 - Present</span>
+                            <span class="location">Chennai, India</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="job-title">Senior Software Engineer</h4>
+                        <p class="job-description">
+                            Currently working on AI-powered medical imaging solutions, focusing on scalable backend architectures 
+                            and cloud infrastructure to support machine learning workflows.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
 
-        <section id="contact" class="viewport-section">
-            <div class="contact-grid">
-                <div class="section-header">
-                    <h2 class="cyber-text">SYSTEM.CONNECT</h2>
-                    <div class="header-decoration"></div>
-                </div>
-                <div class="terminal-container">
-                    <div class="terminal-header">
-                        <span class="terminal-title">connection.establish</span>
-                        <div class="terminal-controls">
-                            <span class="control"></span>
-                            <span class="control"></span>
-                            <span class="control"></span>
+                <div class="experience-card">
+                    <div class="card-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="company-details">
+                                <h3 class="company-name">Foodhub India Pvt Ltd</h3>
+                                <p class="company-industry">Food Delivery Platform</p>
+                            </div>
+                        </div>
+                        <div class="employment-period">
+                            <span class="period-badge">2021 - 2023</span>
+                            <span class="location">Chennai, India</span>
                         </div>
                     </div>
-                    <div class="terminal-body">
-                        <div class="terminal-output" id="terminalOutput">
-                            <div class="line">Initializing connection protocol...</div>
-                            <div class="line">Select communication channel:</div>
+                    <div class="card-body">
+                        <h4 class="job-title">Senior Software Engineer - Architect Team</h4>
+                        <p class="job-description">
+                            Led architecture and development of scalable food delivery platform serving the United Kingdom market.
+                        </p>
+                        <div class="achievements">
+                            <div class="achievement-item">
+                                <i class="fas fa-search"></i>
+                                <span>Developed full-text search using ElasticSearch, optimizing performance and cost</span>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-code-branch"></i>
+                                <span>Migrated 200+ TypeScript files from CDK v1 to v2</span>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-database"></i>
+                                <span>Migrated high-transaction table from RDS to DynamoDB</span>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Reduced deployment time from 1 hour to 15-20 minutes</span>
+                            </div>
                         </div>
-                        <div class="social-protocols">
-                            <a href="https://www.linkedin.com/in/ranjith-jagadees/" target="_blank" class="protocol">
-                                <i class="fab fa-linkedin"></i>
-                                <span class="protocol-name">LINKEDIN.CONNECT</span>
-                            </a>
-                            <a href="https://github.com/ranjith-jagadeesh" target="_blank" class="protocol">
-                                <i class="fab fa-github"></i>
-                                <span class="protocol-name">GITHUB.CONNECT</span>
-                            </a>
+                        <div class="tech-stack">
+                            <span class="tech-tag">AWS CDK</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">ElasticSearch</span>
+                            <span class="tech-tag">DynamoDB</span>
+                            <span class="tech-tag">GraphQL</span>
+                            <span class="tech-tag">AppSync</span>
                         </div>
-                        <form id="contactForm" class="terminal-form" action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
-                            <div class="input-line">
-                                <span class="prompt">></span>
-                                <input type="text" id="name" name="name" required placeholder="enter.name">
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="card-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <i class="fas fa-rocket"></i>
                             </div>
-                            <div class="input-line">
-                                <span class="prompt">></span>
-                                <input type="email" id="email" name="email" required placeholder="enter.email">
+                            <div class="company-details">
+                                <h3 class="company-name">Corezi Tech</h3>
+                                <p class="company-industry">Technology Solutions</p>
                             </div>
-                            <div class="input-line">
-                                <span class="prompt">></span>
-                                <textarea id="message" name="message" required placeholder="enter.message"></textarea>
+                        </div>
+                        <div class="employment-period">
+                            <span class="period-badge">2019 - 2021</span>
+                            <span class="location">Chennai, India</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="job-title">DevOps and Software Engineer</h4>
+                        <p class="job-description">
+                            Provided cutting-edge technology solutions for web, mobile development, cloud solutions, and payment systems.
+                        </p>
+                        <div class="achievements">
+                            <div class="achievement-item">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Developed highly scalable payment-related backend applications</span>
                             </div>
-                            <input type="text" name="_honey" style="display:none">
-                            <input type="hidden" name="_captcha" value="false">
-                            <button type="submit" class="terminal-btn">
-                                <span class="btn-text">EXECUTE.SEND</span>
-                                <div class="btn-glitch"></div>
-                            </button>
-                        </form>
+                            <div class="achievement-item">
+                                <i class="fas fa-tools"></i>
+                                <span>Created custom framework using Express and TypeORM</span>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-cloud"></i>
+                                <span>Designed CloudFormation templates for multi-stage deployment</span>
+                            </div>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">TypeORM</span>
+                            <span class="tech-tag">CloudFormation</span>
+                            <span class="tech-tag">CodePipeline</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="card-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="company-details">
+                                <h3 class="company-name">Accenture Solutions</h3>
+                                <p class="company-industry">Enterprise Applications</p>
+                            </div>
+                        </div>
+                        <div class="employment-period">
+                            <span class="period-badge">2017 - 2019</span>
+                            <span class="location">Chennai, India</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="job-title">Application Development Analyst</h4>
+                        <p class="job-description">
+                            Started career designing RESTful APIs and developing server-side backend applications using Node.js.
+                        </p>
+                        <div class="achievements">
+                            <div class="achievement-item">
+                                <i class="fas fa-star"></i>
+                                <span>Conducted training for new hires with 4.8/5.0 rating</span>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-api"></i>
+                                <span>Designed RESTful APIs for enterprise applications</span>
+                            </div>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">REST APIs</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Expertise</h2>
+                <p class="section-subtitle">Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fab fa-node-js"></i>
+                        <h3>Backend Development</h3>
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag featured">Node.js</span>
+                        <span class="skill-tag featured">TypeScript</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">GraphQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fab fa-aws"></i>
+                        <h3>Cloud & AWS</h3>
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag featured">AWS CDK</span>
+                        <span class="skill-tag featured">CloudFormation</span>
+                        <span class="skill-tag">Lambda</span>
+                        <span class="skill-tag">API Gateway</span>
+                        <span class="skill-tag">DynamoDB</span>
+                        <span class="skill-tag">RDS Aurora</span>
+                        <span class="skill-tag">S3</span>
+                        <span class="skill-tag">CloudFront</span>
+                        <span class="skill-tag">CloudWatch</span>
+                        <span class="skill-tag">AppSync</span>
+                        <span class="skill-tag">Route53</span>
+                        <span class="skill-tag">IAM</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-database"></i>
+                        <h3>Database & Storage</h3>
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag featured">DynamoDB</span>
+                        <span class="skill-tag">RDS Aurora</span>
+                        <span class="skill-tag">ElasticSearch</span>
+                        <span class="skill-tag">S3</span>
+                        <span class="skill-tag">TypeORM</span>
+                        <span class="skill-tag">Data Migration</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>DevOps & Tools</h3>
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag">CodePipeline</span>
+                        <span class="skill-tag">CodeBuild</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Bash Script</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag featured">TypeScript</span>
+                        <span class="skill-tag featured">JavaScript</span>
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Frontend & Others</h3>
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Articles</h2>
+                <p class="section-subtitle">Sharing insights on technology and software development</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-platform">
+                                <i class="fab fa-medium"></i>
+                                Medium
+                            </span>
+                            <span class="blog-category">Technology</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank">
+                                From Muscle to Mind to Machine: The Evolution of Human Value
+                            </a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Discover the evolution of human value from physical strength to intelligence, and now, in the age of AI, to our capacity to adapt, create, and collaborate with machines.
+                        </p>
+                        <a href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank" class="blog-link">
+                            Read Article <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-platform">
+                                <i class="fab fa-medium"></i>
+                                Medium
+                            </span>
+                            <span class="blog-category">AWS CDK</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank">
+                                Fix AWS CDK Export: Export name cannot be updated
+                            </a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            A practical solution to a common AWS CDK error when managing CloudFormation exports across stacks. Learn how to resolve dependency issues effectively.
+                        </p>
+                        <a href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank" class="blog-link">
+                            Read Article <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-platform">
+                                <i class="fab fa-medium"></i>
+                                Medium
+                            </span>
+                            <span class="blog-category">AWS CDK</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank">
+                                CDK: How to move resources from one stack to another
+                            </a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Step-by-step guide to safely migrating AWS resources between CDK stacks without downtime. Essential techniques for cloud infrastructure management.
+                        </p>
+                        <a href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank" class="blog-link">
+                            Read Article <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Ready to discuss your next project or opportunity</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:ranjithjagadees@gmail.com">ranjithjagadees@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <a href="tel:+919843278149">+91 98432-78149</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Chennai, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <a href="https://linkedin.com/in/ranjith-jagadees" target="_blank">Connect with me</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/ranjith-jagadeesh" target="_blank">View my code</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>LeetCode</h3>
+                            <a href="https://leetcode.com/ranjithjagadees/" target="_blank">Coding practice</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
+                    </div>
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New message from your portfolio website">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2024 Ranjith Kumar. All rights reserved.</p>
+                    <p class="footer-subtitle">Senior Software Engineer | Chennai, India</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/ranjith-jagadees" target="_blank" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/ranjith-jagadeesh" target="_blank" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://leetcode.com/ranjithjagadees/" target="_blank" class="social-link" title="LeetCode">
+                        <i class="fas fa-code"></i>
+                    </a>
+                    <a href="mailto:ranjithjagadees@gmail.com" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initialize noise canvas
-            const canvas = document.getElementById('noise-canvas');
-            const ctx = canvas.getContext('2d');
-            
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-            
-            function createNoise() {
-                const imageData = ctx.createImageData(canvas.width, canvas.height);
-                const data = imageData.data;
-                
-                for (let i = 0; i < data.length; i += 4) {
-                    const noise = Math.random() * 255;
-                    data[i] = data[i + 1] = data[i + 2] = noise;
-                    data[i + 3] = 15; // Alpha for subtle effect
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-                
-                ctx.putImageData(imageData, 0, 0);
-            }
-            
-            function animateNoise() {
-                createNoise();
-                requestAnimationFrame(animateNoise);
-            }
-            
-            animateNoise();
-
-            // Update system clock
-            function updateClock() {
-                const clock = document.querySelector('.status-clock');
-                const now = new Date();
-                const time = now.toTimeString().split(' ')[0];
-                clock.textContent = time;
-            }
-            
-            setInterval(updateClock, 1000);
-            updateClock();
-
-            // Navigation handling
-            const viewport = document.getElementById('viewport');
-            const sections = document.querySelectorAll('.viewport-section');
-            const navLinks = document.querySelectorAll('.nav-cmd');
-            
-            function activateSection(sectionId) {
-                const targetSection = document.getElementById(sectionId);
-                if (!targetSection) return;
-
-                sections.forEach(section => section.classList.remove('active'));
-                navLinks.forEach(link => link.classList.remove('active'));
-
-                targetSection.classList.add('active');
-                const activeLink = document.querySelector(`[href="#${sectionId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-
-            // Handle navigation clicks
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const sectionId = link.getAttribute('href').substring(1);
-                    activateSection(sectionId);
-                });
             });
-
-            // Scroll handling with throttling
-            let lastScrollTime = 0;
-            const scrollThreshold = 50;
-
-            viewport.addEventListener('scroll', () => {
-                const now = Date.now();
-                if (now - lastScrollTime < scrollThreshold) return;
-                lastScrollTime = now;
-
-                const viewportRect = viewport.getBoundingClientRect();
-                const viewportMiddle = viewportRect.top + (viewportRect.height / 2);
-                
-                let closestSection = null;
-                let minDistance = Infinity;
-                
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const distance = Math.abs(rect.top + (rect.height / 2) - viewportMiddle);
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        closestSection = section;
-                    }
-                });
-                
-                if (closestSection && !closestSection.classList.contains('active')) {
-                    sections.forEach(section => section.classList.remove('active'));
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    
-                    closestSection.classList.add('active');
-                    const activeLink = document.querySelector(`[href="#${closestSection.id}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                    }
-                }
-            }, { passive: true });
-
-            // Matrix effect for role text
-            const matrixChars = document.querySelectorAll('.matrix-char');
-            
-            matrixChars.forEach((char, index) => {
-                setTimeout(() => {
-                    char.classList.add('revealed');
-                }, index * 100);
-            });
-
-            // Form handling with terminal-style feedback
-            const contactForm = document.getElementById('contactForm');
-            const terminalOutput = document.getElementById('terminalOutput');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    appendTerminalLine('Initiating transmission...');
-                    
-                    try {
-                        await fetch(contactForm.action, {
-                            method: 'POST',
-                            body: new FormData(contactForm)
-                        });
-                        
-                        appendTerminalLine('Transmission successful.');
-                        appendTerminalLine('Connection established.');
-                        contactForm.reset();
-                    } catch (error) {
-                        appendTerminalLine('ERROR: Transmission failed.');
-                        appendTerminalLine('Retrying connection...');
-                    }
-                });
-            }
-            
-            function appendTerminalLine(text) {
-                const line = document.createElement('div');
-                line.className = 'line';
-                line.textContent = text;
-                terminalOutput.appendChild(line);
-                terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            }
         });
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Active navigation link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('section, .blog-card, .skill-category, .experience-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = Math.floor(current) + '+';
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                }
+            }, 20);
+        };
+
+        // Animate counters when about section is visible
+        const aboutSection = document.querySelector('#about');
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = document.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.textContent);
+                        animateCounter(counter, target);
+                    });
+                    aboutObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        aboutObserver.observe(aboutSection);
+
+        // Form submission handling
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Submit form
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this)
+            }).then(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                submitBtn.classList.add('success');
+                this.reset();
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('success');
+                }, 3000);
+            }).catch(() => {
+                submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error - Try Again';
+                submitBtn.classList.add('error');
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('error');
+                }, 3000);
+            });
+        });
+
+        // Add typing effect to hero subtitle
+        const subtitle = document.querySelector('.hero-subtitle');
+        const text = subtitle.textContent;
+        subtitle.textContent = '';
+        
+        setTimeout(() => {
+            let i = 0;
+            const typeWriter = () => {
+                if (i < text.length) {
+                    subtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 30);
+                }
+            };
+            typeWriter();
+        }, 1000);
     </script>
 </body>
 </html>
