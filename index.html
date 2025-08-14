@@ -3,804 +3,1225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranjith Kumar - Senior Software Engineer</title>
+    <title>Ranjith Kumar - Senior Software Engineer | Cloud Architecture Expert</title>
+    <meta name="description" content="Senior Software Engineer specializing in cloud architecture, AWS, Node.js, and scalable backend systems. 7+ years of experience building innovative solutions with cutting-edge technology.">
+    <meta name="author" content="Ranjith Kumar">
+    <meta name="keywords" content="Software Engineer, AWS, Node.js, TypeScript, Cloud Architecture, Backend Developer, Full Stack, AI, Machine Learning">
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='iconGrad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23059669'/><stop offset='100%' stop-color='%23f59e0b'/></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23iconGrad)'/><text y='65' x='50' text-anchor='middle' font-size='45' fill='white'>RK</text></svg>" type="image/svg+xml">
     
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">Ranjith Kumar</span>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="#home" class="logo-link" aria-label="Ranjith Kumar - Home">
+                        <span class="logo-text">Ranjith Kumar</span>
+                    </a>
+                </div>
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="#home" class="nav-link active" role="menuitem" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#about" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#experience" class="nav-link" role="menuitem">Experience</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#skills" class="nav-link" role="menuitem">Skills</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#articles" class="nav-link" role="menuitem">Articles</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </button>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#blog" class="nav-link">Articles</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="fade-in">Hello, I'm</span>
-                        <span class="name-highlight fade-in-delay">Ranjith Kumar</span>
-                    </h1>
-                    <p class="hero-subtitle fade-in-delay-2">
-                        Senior Software Engineer specializing in scalable cloud architectures and backend systems
-                    </p>
-                    <div class="hero-location fade-in-delay-2">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Chennai, India
+    <main>
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-greeting">
+                            <span class="greeting-text">Hello, I'm</span>
+                        </div>
+                        <h1 id="hero-title" class="hero-title">
+                            <span class="name-primary">Ranjith</span>
+                            <span class="name-secondary">Kumar</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            <span class="role-title">Senior Software Engineer</span>
+                            <span class="role-description">Building the future with cutting-edge technology and scalable cloud architectures</span>
+                        </p>
+                        <div class="hero-location">
+                            <svg class="location-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                            <span>Chennai, India</span>
+                        </div>
+                        <div class="hero-actions">
+                            <a href="#contact" class="btn btn-primary" aria-label="Contact Ranjith Kumar">
+                                <span>Let's Connect</span>
+                                <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </a>
+                            <a href="#about" class="btn btn-secondary" aria-label="Learn more about Ranjith Kumar">
+                                <span>Explore Journey</span>
+                                <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                    <div class="hero-buttons fade-in-delay-3">
-                        <a href="#contact" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i>
-                            Get In Touch
-                        </a>
-                        <a href="#about" class="btn btn-secondary">
-                            <i class="fas fa-user"></i>
-                            Learn More
-                        </a>
+                    <div class="hero-visual">
+                        <div class="code-card">
+                            <div class="code-header">
+                                <div class="window-controls">
+                                    <span class="control control-close"></span>
+                                    <span class="control control-minimize"></span>
+                                    <span class="control control-maximize"></span>
+                                </div>
+                                <div class="file-tab">
+                                    <span>portfolio.ts</span>
+                                </div>
+                            </div>
+                            <div class="code-content">
+                                <div class="code-line">
+                                    <span class="line-number">1</span>
+                                    <span class="code-comment">// Crafting the future with innovative solutions</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">2</span>
+                                    <span class="code-keyword">const</span> 
+                                    <span class="code-variable"> engineer</span> 
+                                    <span class="code-operator"> = </span>
+                                    <span class="code-bracket">{</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">3</span>
+                                    <span class="code-property">  name</span>
+                                    <span class="code-operator">: </span>
+                                    <span class="code-string">'Ranjith Kumar'</span>
+                                    <span class="code-operator">,</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">4</span>
+                                    <span class="code-property">  role</span>
+                                    <span class="code-operator">: </span>
+                                    <span class="code-string">'Senior Software Engineer'</span>
+                                    <span class="code-operator">,</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">5</span>
+                                    <span class="code-property">  experience</span>
+                                    <span class="code-operator">: </span>
+                                    <span class="code-string">'7+ years'</span>
+                                    <span class="code-operator">,</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">6</span>
+                                    <span class="code-property">  expertise</span>
+                                    <span class="code-operator">: </span>
+                                    <span class="code-bracket">[</span>
+                                    <span class="code-string">'AWS'</span>
+                                    <span class="code-operator">, </span>
+                                    <span class="code-string">'Node.js'</span>
+                                    <span class="code-operator">, </span>
+                                    <span class="code-string">'AI/ML'</span>
+                                    <span class="code-bracket">],</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">7</span>
+                                    <span class="code-property">  mission</span>
+                                    <span class="code-operator">: </span>
+                                    <span class="code-string">'Building scalable solutions'</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">8</span>
+                                    <span class="code-bracket">};</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="7">0</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="50">0</div>
+                                <div class="stat-label">Projects Built</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="4">0</div>
+                                <div class="stat-label">Companies</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="floating-card">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about" aria-labelledby="about-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="about-title" class="section-title">About Me</h2>
+                    <p class="section-subtitle">Passionate about <span class="highlight">crafting scalable solutions</span> and <span class="highlight">cutting-edge cloud architectures</span></p>
+                </div>
+                
+                <div class="bento-grid">
+                    <div class="bento-card bento-large">
                         <div class="card-content">
-                            <div class="code-snippet">
-                                <div class="code-line">
-                                    <span class="code-comment">// Building scalable solutions</span>
+                            <h3>My Journey</h3>
+                            <p>
+                                I'm a <span class="highlight">seasoned software professional</span> with 7+ years of experience building scalable web applications 
+                                and cloud architectures. My expertise spans from backend development with Node.js and TypeScript 
+                                to comprehensive AWS cloud solutions including CDK, Lambda, DynamoDB, and cutting-edge <span class="highlight">AI/ML integrations</span>.
+                            </p>
+                            <div class="journey-highlights">
+                                <div class="highlight">
+                                    <svg class="highlight-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 14C19.74 14 20.38 13.37 20.38 12.63C20.38 11.13 19 10 19 10S17.62 11.13 17.62 12.63C17.62 13.37 18.26 14 19 14Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        <path d="M9 9H14M9 13H14M9 17H10M17 3A2 2 0 0 1 19 5V19A2 2 0 0 1 17 21H7A2 2 0 0 1 5 19V5A2 2 0 0 1 7 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    <span>50+ Projects Delivered</span>
                                 </div>
-                                <div class="code-line">
-                                    <span class="code-keyword">const</span> 
-                                    <span class="code-variable">skills</span> 
-                                    <span class="code-operator">=</span> 
-                                    <span class="code-array">["AWS", "Node.js", "TypeScript"]</span>
+                                <div class="highlight">
+                                    <svg class="highlight-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                    <span>Enterprise-grade Solutions</span>
                                 </div>
-                                <div class="code-line">
-                                    <span class="code-keyword">const</span> 
-                                    <span class="code-variable">experience</span> 
-                                    <span class="code-operator">=</span> 
-                                    <span class="code-string">"7+ years"</span>
-                                </div>
-                                <div class="code-line">
-                                    <span class="code-comment">// Passionate about cloud architecture</span>
+                                <div class="highlight">
+                                    <svg class="highlight-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                    <span>Performance Optimization Expert</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Senior Software Engineer with expertise in cloud architecture and scalable systems</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-description">
-                        I'm a seasoned software professional with a proven track record in planning and building web applications, 
-                        backend server operations using Node.js. I possess strong expertise in creating backend server applications 
-                        with various AWS services, setting up cloud architectures using AWS. My experience includes working with 
-                        various AWS services such as CloudFormation, Cloud Development Kit (CDK), Lambda, CloudWatch, API Gateway, 
-                        S3, CloudFront, Route53, RDS Aurora, DynamoDB, AppSync, DMS, Glue, and IAM.
-                    </p>
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-cloud"></i>
-                            <div class="highlight-content">
-                                <h4>Cloud Architecture</h4>
-                                <p>Extensive experience with AWS services and cloud-native solutions</p>
+                    <div class="bento-card bento-medium">
+                        <div class="card-content">
+                            <h3>Core Expertise</h3>
+                            <div class="expertise-list">
+                                <div class="expertise-item">
+                                    <div class="expertise-icon aws">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.5 12C17.5 16.1421 14.1421 19.5 10 19.5C5.85786 19.5 2.5 16.1421 2.5 12C2.5 7.85786 5.85786 4.5 10 4.5" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M14 2L17.5 4.5L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4>Cloud Architecture</h4>
+                                        <p>AWS, CDK, Lambda, DynamoDB</p>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <div class="expertise-icon backend">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4>Backend Development</h4>
+                                        <p>Node.js, TypeScript, REST APIs</p>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <div class="expertise-icon devops">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4>DevOps & CI/CD</h4>
+                                        <p>CodePipeline, Infrastructure as Code</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-code"></i>
-                            <div class="highlight-content">
-                                <h4>Backend Development</h4>
-                                <p>Specialized in Node.js, TypeScript, and scalable server architectures</p>
-                            </div>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-chart-line"></i>
-                            <div class="highlight-content">
-                                <h4>Performance Optimization</h4>
-                                <p>Proven track record of optimizing applications and reducing costs</p>
-                            </div>
-                        </div>
                     </div>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">7+</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Projects Delivered</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">4</div>
-                            <div class="stat-label">Companies</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <div class="about-languages">
-                        <h4>Languages</h4>
-                        <div class="language-item">
-                            <span>English</span>
-                            <span class="proficiency">Full Professional</span>
-                        </div>
-                        <div class="language-item">
-                            <span>Tamil</span>
-                            <span class="proficiency">Native</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Professional Experience</h2>
-                <p class="section-subtitle">Building innovative solutions across diverse industries</p>
-            </div>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="card-header">
-                        <div class="company-info">
-                            <div class="company-logo">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="company-details">
-                                <h3 class="company-name">Annalise.ai</h3>
-                                <p class="company-industry">AI Medical Imaging</p>
-                            </div>
-                        </div>
-                        <div class="employment-period">
-                            <span class="period-badge current">2023 - Present</span>
-                            <span class="location">Chennai, India</span>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="job-title">Senior Software Engineer</h4>
-                        <p class="job-description">
-                            Currently working on AI-powered medical imaging solutions, focusing on scalable backend architectures 
-                            and cloud infrastructure to support machine learning workflows.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Machine Learning</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="card-header">
-                        <div class="company-info">
-                            <div class="company-logo">
-                                <i class="fas fa-utensils"></i>
-                            </div>
-                            <div class="company-details">
-                                <h3 class="company-name">Foodhub India Pvt Ltd</h3>
-                                <p class="company-industry">Food Delivery Platform</p>
-                            </div>
-                        </div>
-                        <div class="employment-period">
-                            <span class="period-badge">2021 - 2023</span>
-                            <span class="location">Chennai, India</span>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="job-title">Senior Software Engineer - Architect Team</h4>
-                        <p class="job-description">
-                            Led architecture and development of scalable food delivery platform serving the United Kingdom market.
-                        </p>
-                        <div class="achievements">
-                            <div class="achievement-item">
-                                <i class="fas fa-search"></i>
-                                <span>Developed full-text search using ElasticSearch, optimizing performance and cost</span>
-                            </div>
-                            <div class="achievement-item">
-                                <i class="fas fa-code-branch"></i>
-                                <span>Migrated 200+ TypeScript files from CDK v1 to v2</span>
-                            </div>
-                            <div class="achievement-item">
-                                <i class="fas fa-database"></i>
-                                <span>Migrated high-transaction table from RDS to DynamoDB</span>
-                            </div>
-                            <div class="achievement-item">
-                                <i class="fas fa-clock"></i>
-                                <span>Reduced deployment time from 1 hour to 15-20 minutes</span>
-                            </div>
-                        </div>
-                        <div class="tech-stack">
-                            <span class="tech-tag">AWS CDK</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">ElasticSearch</span>
-                            <span class="tech-tag">DynamoDB</span>
-                            <span class="tech-tag">GraphQL</span>
-                            <span class="tech-tag">AppSync</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="card-header">
-                        <div class="company-info">
-                            <div class="company-logo">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <div class="company-details">
-                                <h3 class="company-name">Corezi Tech</h3>
-                                <p class="company-industry">Technology Solutions</p>
-                            </div>
-                        </div>
-                        <div class="employment-period">
-                            <span class="period-badge">2019 - 2021</span>
-                            <span class="location">Chennai, India</span>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="job-title">DevOps and Software Engineer</h4>
-                        <p class="job-description">
-                            Provided cutting-edge technology solutions for web, mobile development, cloud solutions, and payment systems.
-                        </p>
-                        <div class="achievements">
-                            <div class="achievement-item">
-                                <i class="fas fa-credit-card"></i>
-                                <span>Developed highly scalable payment-related backend applications</span>
-                            </div>
-                            <div class="achievement-item">
-                                <i class="fas fa-tools"></i>
-                                <span>Created custom framework using Express and TypeORM</span>
-                            </div>
-                            <div class="achievement-item">
-                                <i class="fas fa-cloud"></i>
-                                <span>Designed CloudFormation templates for multi-stage deployment</span>
-                            </div>
-                        </div>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express.js</span>
-                            <span class="tech-tag">TypeORM</span>
-                            <span class="tech-tag">CloudFormation</span>
-                            <span class="tech-tag">CodePipeline</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="card-header">
-                        <div class="company-info">
-                            <div class="company-logo">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <div class="company-details">
-                                <h3 class="company-name">Accenture Solutions</h3>
-                                <p class="company-industry">Enterprise Applications</p>
-                            </div>
-                        </div>
-                        <div class="employment-period">
-                            <span class="period-badge">2017 - 2019</span>
-                            <span class="location">Chennai, India</span>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="job-title">Application Development Analyst</h4>
-                        <p class="job-description">
-                            Started career designing RESTful APIs and developing server-side backend applications using Node.js.
-                        </p>
-                        <div class="achievements">
-                            <div class="achievement-item">
-                                <i class="fas fa-star"></i>
-                                <span>Conducted training for new hires with 4.8/5.0 rating</span>
-                            </div>
-                            <div class="achievement-item">
-                                <i class="fas fa-api"></i>
-                                <span>Designed RESTful APIs for enterprise applications</span>
-                            </div>
-                        </div>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">REST APIs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technical Expertise</h2>
-                <p class="section-subtitle">Technologies and tools I work with</p>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fab fa-node-js"></i>
-                        <h3>Backend Development</h3>
-                    </div>
-                    <div class="skill-items">
-                        <span class="skill-tag featured">Node.js</span>
-                        <span class="skill-tag featured">TypeScript</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Express.js</span>
-                        <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">GraphQL</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fab fa-aws"></i>
-                        <h3>Cloud & AWS</h3>
-                    </div>
-                    <div class="skill-items">
-                        <span class="skill-tag featured">AWS CDK</span>
-                        <span class="skill-tag featured">CloudFormation</span>
-                        <span class="skill-tag">Lambda</span>
-                        <span class="skill-tag">API Gateway</span>
-                        <span class="skill-tag">DynamoDB</span>
-                        <span class="skill-tag">RDS Aurora</span>
-                        <span class="skill-tag">S3</span>
-                        <span class="skill-tag">CloudFront</span>
-                        <span class="skill-tag">CloudWatch</span>
-                        <span class="skill-tag">AppSync</span>
-                        <span class="skill-tag">Route53</span>
-                        <span class="skill-tag">IAM</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-database"></i>
-                        <h3>Database & Storage</h3>
-                    </div>
-                    <div class="skill-items">
-                        <span class="skill-tag featured">DynamoDB</span>
-                        <span class="skill-tag">RDS Aurora</span>
-                        <span class="skill-tag">ElasticSearch</span>
-                        <span class="skill-tag">S3</span>
-                        <span class="skill-tag">TypeORM</span>
-                        <span class="skill-tag">Data Migration</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-tools"></i>
-                        <h3>DevOps & Tools</h3>
-                    </div>
-                    <div class="skill-items">
-                        <span class="skill-tag">CodePipeline</span>
-                        <span class="skill-tag">CodeBuild</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">Bash Script</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Linux</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-code"></i>
-                        <h3>Programming Languages</h3>
-                    </div>
-                    <div class="skill-items">
-                        <span class="skill-tag featured">TypeScript</span>
-                        <span class="skill-tag featured">JavaScript</span>
-                        <span class="skill-tag">Go</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Python</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-laptop-code"></i>
-                        <h3>Frontend & Others</h3>
-                    </div>
-                    <div class="skill-items">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">Responsive Design</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="blog">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Latest Articles</h2>
-                <p class="section-subtitle">Sharing insights on technology and software development</p>
-            </div>
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-platform">
-                                <i class="fab fa-medium"></i>
-                                Medium
-                            </span>
-                            <span class="blog-category">Technology</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank">
-                                From Muscle to Mind to Machine: The Evolution of Human Value
-                            </a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Discover the evolution of human value from physical strength to intelligence, and now, in the age of AI, to our capacity to adapt, create, and collaborate with machines.
-                        </p>
-                        <a href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank" class="blog-link">
-                            Read Article <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-platform">
-                                <i class="fab fa-medium"></i>
-                                Medium
-                            </span>
-                            <span class="blog-category">AWS CDK</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank">
-                                Fix AWS CDK Export: Export name cannot be updated
-                            </a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            A practical solution to a common AWS CDK error when managing CloudFormation exports across stacks. Learn how to resolve dependency issues effectively.
-                        </p>
-                        <a href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank" class="blog-link">
-                            Read Article <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-platform">
-                                <i class="fab fa-medium"></i>
-                                Medium
-                            </span>
-                            <span class="blog-category">AWS CDK</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank">
-                                CDK: How to move resources from one stack to another
-                            </a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Step-by-step guide to safely migrating AWS resources between CDK stacks without downtime. Essential techniques for cloud infrastructure management.
-                        </p>
-                        <a href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank" class="blog-link">
-                            Read Article <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Let's Connect</h2>
-                <p class="section-subtitle">Ready to discuss your next project or opportunity</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <a href="mailto:ranjithjagadees@gmail.com">ranjithjagadees@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <a href="tel:+919843278149">+91 98432-78149</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
+                    <div class="bento-card bento-small">
+                        <div class="card-content">
                             <h3>Location</h3>
-                            <p>Chennai, India</p>
+                            <div class="location-info">
+                                <div class="location-pin">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="location-text">
+                                    <h4>Chennai, India</h4>
+                                    <p>Available for remote work</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>LinkedIn</h3>
-                            <a href="https://linkedin.com/in/ranjith-jagadees" target="_blank">Connect with me</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>GitHub</h3>
-                            <a href="https://github.com/ranjith-jagadeesh" target="_blank">View my code</a>
+
+                    <div class="bento-card bento-small">
+                        <div class="card-content">
+                            <h3>Languages</h3>
+                            <div class="languages-list">
+                                <div class="language-item">
+                                    <span class="language-name">English</span>
+                                    <span class="language-level professional">Professional</span>
+                                </div>
+                                <div class="language-item">
+                                    <span class="language-name">Tamil</span>
+                                    <span class="language-level native">Native</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>LeetCode</h3>
-                            <a href="https://leetcode.com/ranjithjagadees/" target="_blank">Coding practice</a>
+
+                    <div class="bento-card bento-wide">
+                        <div class="card-content">
+                            <h3>Recent Achievements</h3>
+                            <div class="achievements-grid">
+                                <div class="achievement">
+                                    <div class="achievement-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 8L3 12L7 16M17 8L21 12L17 16M14 4L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4>CDK Migration</h4>
+                                        <p>Successfully migrated 200+ TypeScript files from CDK v1 to v2</p>
+                                    </div>
+                                </div>
+                                <div class="achievement">
+                                    <div class="achievement-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4>Performance Boost</h4>
+                                        <p>Reduced deployment time from 1 hour to 15-20 minutes</p>
+                                    </div>
+                                </div>
+                                <div class="achievement">
+                                    <div class="achievement-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4>Search Innovation</h4>
+                                        <p>Implemented full-text search using ElasticSearch with cost optimization</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
-                    </div>
-                    <input type="text" name="_honey" style="display:none">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="New message from your portfolio website">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i>
-                        Send Message
-                    </button>
-                </form>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience" aria-labelledby="experience-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="experience-title" class="section-title">Professional Journey</h2>
+                    <p class="section-subtitle">Building <span class="highlight">innovative solutions</span> across diverse industries with cutting-edge technology</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item active">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot current"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="experience-card">
+                                <div class="card-header">
+                                    <div class="company-info">
+                                        <div class="company-logo ai">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 2L13.09 8.26L18 9L13.09 9.74L12 16L10.91 9.74L6 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M19 11L20.09 13.26L22 14L20.09 14.74L19 17L17.91 14.74L16 14L17.91 13.26L19 11Z" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M5 19L6.09 21.26L8 22L6.09 22.74L5 25L3.91 22.74L2 22L3.91 21.26L5 19Z" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <div class="company-details">
+                                            <h3>Annalise.ai</h3>
+                                            <p>AI Medical Imaging</p>
+                                            <span class="period current">2023 - Present</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h4>Senior Software Engineer</h4>
+                                    <p>Building <span class="highlight">AI-powered medical imaging solutions</span> with scalable backend architectures and cloud infrastructure supporting <span class="highlight">ML workflows</span> for next-generation healthcare technology.</p>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">TypeScript</span>
+                                        <span class="tech-tag">AWS</span>
+                                        <span class="tech-tag">ML Operations</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="experience-card">
+                                <div class="card-header">
+                                    <div class="company-info">
+                                        <div class="company-logo food">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3 2V8C3 9.1 3.9 10 5 10H7V22H9V10H11C12.1 10 13 9.1 13 8V2H11V8H9V2H7V8H5V2H3ZM15 7V22H17V16H19C20.1 16 21 15.1 21 14V7C21 5.9 20.1 5 19 5S17 5.9 17 7V11H19V13H17Z" fill="currentColor"/>
+                                            </svg>
+                                        </div>
+                                        <div class="company-details">
+                                            <h3>Foodhub India Pvt Ltd</h3>
+                                            <p>Food Delivery Platform</p>
+                                            <span class="period">2021 - 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h4>Senior Software Engineer - Architect Team</h4>
+                                    <p>Led architecture and development of scalable food delivery platform serving the UK market.</p>
+                                    <div class="key-achievements">
+                                        <div class="achievement">
+                                            <span class="achievement-text">Migrated 200+ TypeScript files from CDK v1 to v2</span>
+                                        </div>
+                                        <div class="achievement">
+                                            <span class="achievement-text">Reduced deployment time from 1 hour to 15-20 minutes</span>
+                                        </div>
+                                        <div class="achievement">
+                                            <span class="achievement-text">Implemented ElasticSearch with performance optimization</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">AWS CDK</span>
+                                        <span class="tech-tag">TypeScript</span>
+                                        <span class="tech-tag">ElasticSearch</span>
+                                        <span class="tech-tag">DynamoDB</span>
+                                        <span class="tech-tag">GraphQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="experience-card">
+                                <div class="card-header">
+                                    <div class="company-info">
+                                        <div class="company-logo tech">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                                <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="company-details">
+                                            <h3>Corezi Tech</h3>
+                                            <p>Technology Solutions</p>
+                                            <span class="period">2019 - 2021</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h4>DevOps and Software Engineer</h4>
+                                    <p>Delivered cutting-edge solutions for web, mobile, cloud, and payment systems.</p>
+                                    <div class="key-achievements">
+                                        <div class="achievement">
+                                            <span class="achievement-text">Built scalable payment backend applications</span>
+                                        </div>
+                                        <div class="achievement">
+                                            <span class="achievement-text">Created custom Express & TypeORM framework</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">Express.js</span>
+                                        <span class="tech-tag">TypeORM</span>
+                                        <span class="tech-tag">CloudFormation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="experience-card">
+                                <div class="card-header">
+                                    <div class="company-info">
+                                        <div class="company-logo enterprise">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3 21H21V19H20V7H14V5H10V7H4V19H3V21ZM6 9H8V11H6V9ZM6 13H8V15H6V13ZM10 9H12V11H10V9ZM10 13H12V15H10V13ZM10 17H12V19H10V17ZM14 9H16V11H14V9ZM14 13H16V15H14V13ZM14 17H16V19H14V17ZM16 9H18V11H16V9ZM16 13H18V15H16V13ZM16 17H18V19H16V17Z" fill="currentColor"/>
+                                            </svg>
+                                        </div>
+                                        <div class="company-details">
+                                            <h3>Accenture Solutions</h3>
+                                            <p>Enterprise Applications</p>
+                                            <span class="period">2017 - 2019</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h4>Application Development Analyst</h4>
+                                    <p>Started career designing RESTful APIs and developing enterprise backend applications.</p>
+                                    <div class="key-achievements">
+                                        <div class="achievement">
+                                            <span class="achievement-text">Trained new hires with 4.8/5.0 rating</span>
+                                        </div>
+                                        <div class="achievement">
+                                            <span class="achievement-text">Designed RESTful APIs for enterprise systems</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">REST APIs</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills" aria-labelledby="skills-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="skills-title" class="section-title">Technical Arsenal</h2>
+                    <p class="section-subtitle">Cutting-edge <span class="highlight">technologies and tools</span> powering the future of software development</p>
+                </div>
+                
+                <div class="skills-showcase">
+                    <div class="skill-category primary">
+                        <div class="category-header">
+                            <div class="category-icon backend">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Backend Development</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag expert">Node.js</span>
+                            <span class="skill-tag expert">TypeScript</span>
+                            <span class="skill-tag proficient">JavaScript</span>
+                            <span class="skill-tag proficient">Express.js</span>
+                            <span class="skill-tag proficient">REST APIs</span>
+                            <span class="skill-tag proficient">GraphQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category primary">
+                        <div class="category-header">
+                            <div class="category-icon cloud">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 10H16.74C16.24 6.67 13.35 4 9.88 4C6.95 4 4.44 6.15 4.03 9H2C0.9 9 0 9.9 0 11S0.9 13 2 13H18C19.1 13 20 12.1 20 11S19.1 10 18 10Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3>Cloud & AWS</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag expert">AWS CDK</span>
+                            <span class="skill-tag expert">CloudFormation</span>
+                            <span class="skill-tag proficient">Lambda</span>
+                            <span class="skill-tag proficient">API Gateway</span>
+                            <span class="skill-tag proficient">DynamoDB</span>
+                            <span class="skill-tag proficient">S3</span>
+                            <span class="skill-tag familiar">CloudFront</span>
+                            <span class="skill-tag familiar">Route53</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category secondary">
+                        <div class="category-header">
+                            <div class="category-icon database">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Database & Storage</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag expert">DynamoDB</span>
+                            <span class="skill-tag proficient">RDS Aurora</span>
+                            <span class="skill-tag proficient">ElasticSearch</span>
+                            <span class="skill-tag proficient">TypeORM</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category secondary">
+                        <div class="category-header">
+                            <div class="category-icon devops">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>DevOps & CI/CD</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag proficient">CodePipeline</span>
+                            <span class="skill-tag proficient">CodeBuild</span>
+                            <span class="skill-tag proficient">Infrastructure as Code</span>
+                            <span class="skill-tag proficient">Git</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category tertiary">
+                        <div class="category-header">
+                            <div class="category-icon languages">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 8L3 12L7 16M17 8L21 12L17 16M14 4L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>Programming Languages</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag expert">TypeScript</span>
+                            <span class="skill-tag expert">JavaScript</span>
+                            <span class="skill-tag familiar">Go</span>
+                            <span class="skill-tag familiar">Java</span>
+                            <span class="skill-tag familiar">Python</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category tertiary">
+                        <div class="category-header">
+                            <div class="category-icon frontend">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 4H8C5.79 4 4 5.79 4 8V16C4 18.21 5.79 20 8 20H16C18.21 20 20 18.21 20 16V8C20 5.79 18.21 4 16 4Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M9 9H15M9 13H13M9 17H11" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Frontend & Others</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag proficient">React</span>
+                            <span class="skill-tag proficient">HTML5</span>
+                            <span class="skill-tag proficient">CSS3</span>
+                            <span class="skill-tag proficient">Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot expert"></span>
+                        <span>Expert Level</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot proficient"></span>
+                        <span>Proficient</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot familiar"></span>
+                        <span>Familiar</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles" class="articles" aria-labelledby="articles-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="articles-title" class="section-title">Latest Articles</h2>
+                    <p class="section-subtitle">Sharing insights on technology and software development</p>
+                </div>
+                
+                <div class="articles-grid">
+                    <article class="article-card featured">
+                        <div class="article-header">
+                            <div class="article-meta">
+                                <div class="platform-badge">
+                                    <svg class="platform-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13 12H21L19 8H17L19 4H11L9 8H7L9 12H1L3 16H5L3 20H11L13 16H15L13 12Z" fill="currentColor"/>
+                                    </svg>
+                                    <span>Medium</span>
+                                </div>
+                                <span class="article-category technology">Technology</span>
+                            </div>
+                            <div class="article-type">Featured</div>
+                        </div>
+                        <div class="article-content">
+                            <h3 class="article-title">
+                                <a href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank" rel="noopener noreferrer">
+                                    From Muscle to Mind to Machine: The Evolution of Human Value
+                                </a>
+                            </h3>
+                            <p class="article-excerpt">
+                                Exploring the evolution of human value from physical strength to intelligence, and now in the AI era, to our capacity to adapt, create, and collaborate with machines.
+                            </p>
+                            <div class="article-footer">
+                                <a href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank" rel="noopener noreferrer" class="read-more">
+                                    <span>Read Article</span>
+                                    <svg class="external-link" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 17l10-10M17 7H7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-header">
+                            <div class="article-meta">
+                                <div class="platform-badge">
+                                    <svg class="platform-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13 12H21L19 8H17L19 4H11L9 8H7L9 12H1L3 16H5L3 20H11L13 16H15L13 12Z" fill="currentColor"/>
+                                    </svg>
+                                    <span>Medium</span>
+                                </div>
+                                <span class="article-category aws">AWS CDK</span>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <h3 class="article-title">
+                                <a href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank" rel="noopener noreferrer">
+                                    Fix AWS CDK Export: Export name cannot be updated
+                                </a>
+                            </h3>
+                            <p class="article-excerpt">
+                                A practical solution to a common AWS CDK error when managing CloudFormation exports across stacks.
+                            </p>
+                            <div class="article-footer">
+                                <a href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank" rel="noopener noreferrer" class="read-more">
+                                    <span>Read Article</span>
+                                    <svg class="external-link" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 17l10-10M17 7H7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-header">
+                            <div class="article-meta">
+                                <div class="platform-badge">
+                                    <svg class="platform-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13 12H21L19 8H17L19 4H11L9 8H7L9 12H1L3 16H5L3 20H11L13 16H15L13 12Z" fill="currentColor"/>
+                                    </svg>
+                                    <span>Medium</span>
+                                </div>
+                                <span class="article-category aws">AWS CDK</span>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <h3 class="article-title">
+                                <a href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank" rel="noopener noreferrer">
+                                    CDK: How to move resources from one stack to another
+                                </a>
+                            </h3>
+                            <p class="article-excerpt">
+                                Step-by-step guide to safely migrating AWS resources between CDK stacks without downtime.
+                            </p>
+                            <div class="article-footer">
+                                <a href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank" rel="noopener noreferrer" class="read-more">
+                                    <span>Read Article</span>
+                                    <svg class="external-link" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 17l10-10M17 7H7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="contact-title" class="section-title">Let's Build the Future</h2>
+                    <p class="section-subtitle">Ready to discuss your <span class="highlight">next breakthrough project</span> or innovative opportunity</p>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-header">
+                                <h3>Get in Touch</h3>
+                                <p>I'm always interested in <span class="highlight">innovative opportunities</span> and cutting-edge collaborations</p>
+                            </div>
+                            <div class="contact-methods">
+                                <a href="mailto:ranjithjagadees@gmail.com" class="contact-method primary" aria-label="Send email to Ranjith Kumar">
+                                    <div class="method-icon email">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
+                                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="method-content">
+                                        <span class="method-label">Email</span>
+                                        <span class="method-value">ranjithjagadees@gmail.com</span>
+                                    </div>
+                                </a>
+                                
+                                <a href="tel:+919843278149" class="contact-method" aria-label="Call Ranjith Kumar">
+                                    <div class="method-icon phone">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="method-content">
+                                        <span class="method-label">Phone</span>
+                                        <span class="method-value">+91 98432-78149</span>
+                                    </div>
+                                </a>
+
+                                <div class="contact-method">
+                                    <div class="method-icon location">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="method-content">
+                                        <span class="method-label">Location</span>
+                                        <span class="method-value">Chennai, India</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="social-links">
+                                <a href="https://linkedin.com/in/ranjith-jagadees" target="_blank" rel="noopener noreferrer" class="social-link linkedin" aria-label="Connect on LinkedIn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" fill="currentColor"/>
+                                        <circle cx="4" cy="4" r="2" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/ranjith-jagadeesh" target="_blank" rel="noopener noreferrer" class="social-link github" aria-label="View GitHub profile">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <a href="https://leetcode.com/ranjithjagadees/" target="_blank" rel="noopener noreferrer" class="social-link leetcode" aria-label="View LeetCode profile">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 8L3 12L7 16M17 8L21 12L17 16M14 4L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form class="contact-form" action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
+                            <div class="form-header">
+                                <h3>Start a Conversation</h3>
+                                <p>Let's discuss how we can <span class="highlight">build something amazing</span> together</p>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Name *</label>
+                                    <input type="text" id="name" name="name" class="form-input" required aria-required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required aria-required="true">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="6" required aria-required="true" placeholder="Tell me about your project, opportunity, or just say hello..."></textarea>
+                            </div>
+
+                            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_subject" value="New message from portfolio website">
+
+                            <button type="submit" class="btn btn-primary form-submit">
+                                <span class="btn-text">Send Message</span>
+                                <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
-                    <p>&copy; 2024 Ranjith Kumar. All rights reserved.</p>
-                    <p class="footer-subtitle">Senior Software Engineer | Chennai, India</p>
+                    <div class="footer-logo">
+                        <span class="logo-text">Ranjith Kumar</span>
+                    </div>
+                    <p class="footer-description">Senior Software Engineer specializing in cloud architecture and scalable backend systems</p>
+                    <div class="footer-links">
+                        <a href="mailto:ranjithjagadees@gmail.com" class="footer-link">ranjithjagadees@gmail.com</a>
+                        <span class="footer-divider">•</span>
+                        <span class="footer-location">Chennai, India</span>
+                    </div>
                 </div>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/ranjith-jagadees" target="_blank" class="social-link" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/ranjith-jagadeesh" target="_blank" class="social-link" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://leetcode.com/ranjithjagadees/" target="_blank" class="social-link" title="LeetCode">
-                        <i class="fas fa-code"></i>
-                    </a>
-                    <a href="mailto:ranjithjagadees@gmail.com" class="social-link" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                
+                <div class="footer-social">
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/ranjith-jagadees" target="_blank" rel="noopener noreferrer" class="social-link linkedin" aria-label="Connect on LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" fill="currentColor"/>
+                                <circle cx="4" cy="4" r="2" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/ranjith-jagadeesh" target="_blank" rel="noopener noreferrer" class="social-link github" aria-label="View GitHub profile">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="https://leetcode.com/ranjithjagadees/" target="_blank" rel="noopener noreferrer" class="social-link leetcode" aria-label="View LeetCode profile">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 8L3 12L7 16M17 8L21 12L17 16M14 4L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
+            </div>
+            
+            <div class="footer-bottom">
+                                    <div class="footer-copyright">
+                        <p>&copy; 2024 Ranjith Kumar. All rights reserved.</p>
+                    </div>
+                    <div class="footer-credits">
+                        <p>Designed & Built with <span class="highlight">cutting-edge technology</span> and passion</p>
+                    </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+        // Modern JavaScript for portfolio interactions
+        class PortfolioApp {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.setupSmoothScrolling();
+                this.setupMobileMenu();
+                this.setupScrollSpy();
+                this.setupAnimationObserver();
+                this.setupCounterAnimation();
+                this.setupFormHandler();
+                this.setupTypingEffect();
+            }
+
+            // Smooth scrolling with offset for fixed header
+            setupSmoothScrolling() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(anchor.getAttribute('href'));
+                        if (target) {
+                            const offsetTop = target.offsetTop - 80; // Account for fixed header
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
                     });
-                }
-            });
-        });
+                });
+            }
 
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+            // Mobile menu with accessibility
+            setupMobileMenu() {
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.nav-menu');
+                
+                if (!hamburger || !navMenu) return;
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+                hamburger.addEventListener('click', () => {
+                    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                    hamburger.setAttribute('aria-expanded', !isExpanded);
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }));
-
-        // Active navigation link on scroll
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections and cards
-        document.querySelectorAll('section, .blog-card, .skill-category, .experience-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Counter animation for stats
-        const animateCounter = (element, target) => {
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                element.textContent = Math.floor(current) + '+';
-                if (current >= target) {
-                    element.textContent = target + '+';
-                    clearInterval(timer);
-                }
-            }, 20);
-        };
-
-        // Animate counters when about section is visible
-        const aboutSection = document.querySelector('#about');
-        const aboutObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = document.querySelectorAll('.stat-number');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.textContent);
-                        animateCounter(counter, target);
+                // Close menu when clicking on links
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
                     });
-                    aboutObserver.unobserve(entry.target);
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            }
+
+            // Efficient scroll spy with throttling
+            setupScrollSpy() {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav-link');
+                let ticking = false;
+
+                const updateActiveLink = () => {
+                    const scrollPos = window.scrollY + 100;
+                    let current = '';
+
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.clientHeight;
+                        
+                        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        link.removeAttribute('aria-current');
+                        if (link.getAttribute('href') === `#${current}`) {
+                            link.classList.add('active');
+                            link.setAttribute('aria-current', 'page');
+                        }
+                    });
+
+                    ticking = false;
+                };
+
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        requestAnimationFrame(updateActiveLink);
+                        ticking = true;
+                    }
+                });
+            }
+
+            // Intersection Observer for animations
+            setupAnimationObserver() {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                // Observe elements for animation
+                document.querySelectorAll('section, .bento-card, .article-card, .timeline-item, .skill-category').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            // Counter animation for stats
+            setupCounterAnimation() {
+                const animateCounter = (element, target) => {
+                    let current = 0;
+                    const increment = target / 60; // 60 frames for smooth animation
+                    let hasDecimal = target !== Math.floor(target);
+                    
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current >= target) {
+                            element.textContent = hasDecimal ? target.toFixed(1) : target;
+                            return;
+                        }
+                        element.textContent = hasDecimal ? current.toFixed(1) : Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    };
+                    
+                    updateCounter();
+                };
+
+                const statsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const counters = entry.target.querySelectorAll('[data-count]');
+                            counters.forEach(counter => {
+                                const target = parseInt(counter.getAttribute('data-count'));
+                                animateCounter(counter, target);
+                            });
+                            statsObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                const statsSection = document.querySelector('.hero-stats');
+                if (statsSection) {
+                    statsObserver.observe(statsSection);
                 }
-            });
-        }, observerOptions);
+            }
 
-        aboutObserver.observe(aboutSection);
+            // Enhanced form handling
+            setupFormHandler() {
+                const form = document.querySelector('.contact-form');
+                if (!form) return;
 
-        // Form submission handling
-        const contactForm = document.querySelector('.contact-form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-            
-            // Submit form
-            fetch(this.action, {
-                method: 'POST',
-                body: new FormData(this)
-            }).then(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                submitBtn.classList.add('success');
-                this.reset();
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('success');
-                }, 3000);
-            }).catch(() => {
-                submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error - Try Again';
-                submitBtn.classList.add('error');
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('error');
-                }, 3000);
-            });
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnIcon = submitBtn.querySelector('.btn-icon');
+                    const originalText = btnText.textContent;
+                    
+                    // Show loading state
+                    btnText.textContent = 'Sending...';
+                    btnIcon.innerHTML = `
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    `;
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('loading');
+
+                    try {
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: new FormData(form),
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            btnText.textContent = 'Message Sent!';
+                            btnIcon.innerHTML = `
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            `;
+                            submitBtn.classList.remove('loading');
+                            submitBtn.classList.add('success');
+                            form.reset();
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    } catch (error) {
+                        btnText.textContent = 'Error - Try Again';
+                        btnIcon.innerHTML = `
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2"/>
+                                <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        `;
+                        submitBtn.classList.remove('loading');
+                        submitBtn.classList.add('error');
+                    }
+
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        btnText.textContent = originalText;
+                        btnIcon.innerHTML = `
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        `;
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('success', 'error', 'loading');
+                    }, 3000);
+                });
+            }
+
+            // Subtle typing effect for hero
+            setupTypingEffect() {
+                const roleDescription = document.querySelector('.role-description');
+                if (!roleDescription) return;
+
+                const text = roleDescription.textContent;
+                roleDescription.textContent = '';
+                roleDescription.style.opacity = '1';
+                
+                let i = 0;
+                const typeChar = () => {
+                    if (i < text.length) {
+                        roleDescription.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeChar, 30);
+                    }
+                };
+
+                // Start typing effect after a delay
+                setTimeout(typeChar, 1500);
+            }
+        }
+
+        // Initialize the application when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => new PortfolioApp());
+        } else {
+            new PortfolioApp();
+        }
+
+        // Preload critical resources
+        const preloadLinks = [
+            'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
+        ];
+
+        preloadLinks.forEach(href => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'style';
+            link.href = href;
+            document.head.appendChild(link);
         });
-
-        // Add typing effect to hero subtitle
-        const subtitle = document.querySelector('.hero-subtitle');
-        const text = subtitle.textContent;
-        subtitle.textContent = '';
-        
-        setTimeout(() => {
-            let i = 0;
-            const typeWriter = () => {
-                if (i < text.length) {
-                    subtitle.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 30);
-                }
-            };
-            typeWriter();
-        }, 1000);
     </script>
 </body>
 </html>
