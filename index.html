@@ -3,408 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RANJITH.SYSTEM</title>
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>システム</text></svg>" type="image/svg+xml">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Ranjith Jagadeesh - Software Engineer</title>
+    <meta name="description" content="Senior Software Engineer crafting scalable systems and thoughtful solutions. Building backend infrastructure at Harrison.ai, FoodHub, and more.">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Grid overlay -->
-    <div class="grid-overlay"></div>
+    <!-- Ambient Background Orbs -->
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
 
-    <!-- Distortion canvas -->
-    <canvas id="noise-canvas"></canvas>
-
-    <!-- System status bar -->
-    <div class="status-bar">
-        <div class="status-item">SYS.STATUS: ONLINE</div>
-        <div class="status-clock">00:00:00</div>
-    </div>
-
-    <!-- Navigation as terminal commands -->
-    <nav class="terminal-nav">
-        <div class="command-prompt">
-            <span class="prompt-char">></span>
-            <span class="command-text">navigate.to(</span>
-            <div class="command-options">
-                <a href="#home" class="nav-cmd active" data-section="home">"home"</a>
-                <a href="#experience" class="nav-cmd" data-section="experience">"exp"</a>
-                <a href="#skills" class="nav-cmd" data-section="skills">"sys"</a>
-                <a href="#blogs" class="nav-cmd" data-section="blogs">"blog"</a>
-                <a href="#contact" class="nav-cmd" data-section="contact">"connect"</a>
-            </div>
-            <span class="command-text">)</span>
-        </div>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#home" class="nav-logo">RJ</a>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#journey" class="nav-link">Journey</a></li>
+            <li><a href="#craft" class="nav-link">Craft</a></li>
+            <li><a href="#writing" class="nav-link">Writing</a></li>
+        </ul>
     </nav>
 
-    <main id="viewport">
-        <section id="home" class="viewport-section active">
-            <div class="glitch-grid">
-                <div class="ascii-art">
-                    <!-- ASCII art container -->
-                </div>
-                <div class="identity-container">
-                    <div class="scanline"></div>
-                    <h1 class="cyber-glitch" data-text="RANJITH">RANJITH</h1>
-                    <h1 class="cyber-glitch" data-text="JAGADEES">JAGADEES</h1>
-                    <div class="role-matrix">
-                        <span class="matrix-char">S</span>
-                        <span class="matrix-char">O</span>
-                        <span class="matrix-char">F</span>
-                        <span class="matrix-char">T</span>
-                        <span class="matrix-char">W</span>
-                        <span class="matrix-char">A</span>
-                        <span class="matrix-char">R</span>
-                        <span class="matrix-char">E</span>
-                        <span class="matrix-char">&nbsp;</span>
-                        <span class="matrix-char">E</span>
-                        <span class="matrix-char">N</span>
-                        <span class="matrix-char">G</span>
-                        <span class="matrix-char">I</span>
-                        <span class="matrix-char">N</span>
-                        <span class="matrix-char">E</span>
-                        <span class="matrix-char">E</span>
-                        <span class="matrix-char">R</span>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-inner reveal">
+                <div class="avatar-container">
+                    <div class="avatar">
+                        <span class="avatar-placeholder">R</span>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="experience" class="viewport-section">
-            <div class="exp-grid">
-                <div class="section-header">
-                    <h2 class="cyber-text">SYSTEM.EXPERIENCE</h2>
-                    <div class="header-decoration"></div>
-                </div>
-                <div class="timeline-grid">
-                    <div class="exp-node" data-year="2023-NOW">
-                        <div class="node-content">
-                            <div class="company-tag">[ANNALISE.AI]</div>
-                            <div class="role-tag">SOFTWARE.ENGINEER</div>
-                            <div class="time-tag">RUNTIME: 2023-PRESENT</div>
-                        </div>
-                    </div>
-                    <div class="exp-node" data-year="2021-2023">
-                        <div class="node-content">
-                            <div class="company-tag">[FOODHUB]</div>
-                            <div class="role-tag">SOFTWARE.ENGINEER</div>
-                            <div class="time-tag">RUNTIME: 2021-2023</div>
-                        </div>
-                    </div>
-                    <div class="exp-node" data-year="2019-2021">
-                        <div class="node-content">
-                            <div class="company-tag">[COREZI]</div>
-                            <div class="role-tag">SOFTWARE.DEVELOPER</div>
-                            <div class="time-tag">RUNTIME: 2019-2021</div>
-                        </div>
-                    </div>
-                    <div class="exp-node" data-year="2017-2019">
-                        <div class="node-content">
-                            <div class="company-tag">[ACCENTURE]</div>
-                            <div class="role-tag">SOFTWARE.ENGINEER</div>
-                            <div class="time-tag">RUNTIME: 2017-2019</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <p class="hero-greeting">Hey, I'm</p>
+                <h1 class="hero-name">Ranjith Jagadeesh</h1>
+                <p class="hero-tagline">Building <span class="highlight">cloud-native systems</span> across<br>SaaS, AI, and regulated domains.</p>
+                <p class="hero-description">Senior Software Engineer with <span id="years-exp"></span>+ years in backend architecture, DevOps automation, and AI integration. Currently at Harrison.ai, shipping healthcare AI to secure environments worldwide.</p>
 
-        <section id="skills" class="viewport-section">
-            <div class="skills-grid">
-                <div class="section-header">
-                    <h2 class="cyber-text">SYSTEM.CAPABILITIES</h2>
-                    <div class="header-decoration"></div>
-                </div>
-                <div class="skills-matrix">
-                    <div class="skill-cluster backend">
-                        <div class="cluster-core">
-                            <i class="fas fa-server"></i>
-                            <span>BACKEND.SYS</span>
-                        </div>
-                        <div class="cluster-nodes">
-                            <span class="node">Node.js</span>
-                            <span class="node">Python</span>
-                            <span class="node">REST.APIs</span>
-                        </div>
-                    </div>
-                    <div class="skill-cluster devops">
-                        <div class="cluster-core">
-                            <i class="fas fa-tools"></i>
-                            <span>DEVOPS.SYS</span>
-                        </div>
-                        <div class="cluster-nodes">
-                            <span class="node">Docker</span>
-                            <span class="node">AWS</span>
-                            <span class="node">CI/CD</span>
-                        </div>
-                    </div>
-                    <div class="skill-cluster cloud">
-                        <div class="cluster-core">
-                            <i class="fas fa-cloud"></i>
-                            <span>CLOUD.SYS</span>
-                        </div>
-                        <div class="cluster-nodes">
-                            <span class="node">EC2</span>
-                            <span class="node">Lambda</span>
-                            <span class="node">S3</span>
-                        </div>
-                    </div>
-                    <div class="skill-cluster database">
-                        <div class="cluster-core">
-                            <i class="fas fa-database"></i>
-                            <span>DATA.SYS</span>
-                        </div>
-                        <div class="cluster-nodes">
-                            <span class="node">SQL</span>
-                            <span class="node">MongoDB</span>
-                            <span class="node">Redis</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="blogs" class="viewport-section">
-            <div class="blogs-grid">
-                <div class="section-header">
-                    <h2 class="cyber-text">SYSTEM.BLOGS</h2>
-                    <div class="header-decoration"></div>
-                </div>
-                <div class="blogs-list">
-                    <a class="blog-card" href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank">
-                        <div class="blog-title"><i class="fab fa-medium"></i> From Muscle to Mind to Machine: The Evolution of Human Value</div>
-                        <div class="blog-desc">Discover the evolution of human value from physical strength to intelligence, and now, in the age of AI, to our capacity to adapt, create, and collaborate with machines.</div>
-                        <span class="blog-link">Read more &rarr;</span>
+                <div class="hero-links">
+                    <a href="https://www.linkedin.com/in/ranjith-jagadees/" target="_blank" rel="noopener" class="hero-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                     </a>
-                    <a class="blog-card" href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank">
-                        <div class="blog-title"><i class="fab fa-medium"></i> Fix AWS CDK Export: Export name cannot be updated as it is in use by stack name</div>
-                        <div class="blog-desc">A practical solution to a common AWS CDK error when managing CloudFormation exports across stacks.</div>
-                        <span class="blog-link">Read more &rarr;</span>
+                    <a href="https://github.com/ranjith-jagadeesh" target="_blank" rel="noopener" class="hero-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                     </a>
-                    <a class="blog-card" href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank">
-                        <div class="blog-title"><i class="fab fa-medium"></i> CDK: How to move resources from one stack to another stack</div>
-                        <div class="blog-desc">Step-by-step guide to safely migrating AWS resources between CDK stacks without downtime.</div>
-                        <span class="blog-link">Read more &rarr;</span>
+                    <a href="https://medium.com/@ranjithkumarsid" target="_blank" rel="noopener" class="hero-link" aria-label="Medium">
+                        <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="viewport-section">
-            <div class="contact-grid">
-                <div class="section-header">
-                    <h2 class="cyber-text">SYSTEM.CONNECT</h2>
-                    <div class="header-decoration"></div>
-                </div>
-                <div class="terminal-container">
-                    <div class="terminal-header">
-                        <span class="terminal-title">connection.establish</span>
-                        <div class="terminal-controls">
-                            <span class="control"></span>
-                            <span class="control"></span>
-                            <span class="control"></span>
-                        </div>
+        <!-- Journey Section -->
+        <section id="journey" class="journey-section">
+            <div class="reveal">
+                <span class="section-label">The Journey</span>
+                <h2 class="section-title">Building, learning, evolving.</h2>
+                <p class="section-subtitle"><span id="years-journey"></span> years of solving problems, shipping products, and growing alongside talented teams.</p>
+            </div>
+
+            <div class="journey-grid">
+                <div class="journey-card reveal">
+                    <span class="journey-year">2023 — Now</span>
+                    <div class="journey-content">
+                        <h3>Senior Software Engineer</h3>
+                        <p>Migrated cloud systems into air-gapped Docker containers for secure hospital deployments. Integrated AI models and built post-processing pipelines.</p>
                     </div>
-                    <div class="terminal-body">
-                        <div class="terminal-output" id="terminalOutput">
-                            <div class="line">Initializing connection protocol...</div>
-                            <div class="line">Select communication channel:</div>
-                        </div>
-                        <div class="social-protocols">
-                            <a href="https://www.linkedin.com/in/ranjith-jagadees/" target="_blank" class="protocol">
-                                <i class="fab fa-linkedin"></i>
-                                <span class="protocol-name">LINKEDIN.CONNECT</span>
-                            </a>
-                            <a href="https://github.com/ranjith-jagadeesh" target="_blank" class="protocol">
-                                <i class="fab fa-github"></i>
-                                <span class="protocol-name">GITHUB.CONNECT</span>
-                            </a>
-                        </div>
-                        <form id="contactForm" class="terminal-form" action="https://formsubmit.co/ranjithjagadees@gmail.com" method="POST">
-                            <div class="input-line">
-                                <span class="prompt">></span>
-                                <input type="text" id="name" name="name" required placeholder="enter.name">
-                            </div>
-                            <div class="input-line">
-                                <span class="prompt">></span>
-                                <input type="email" id="email" name="email" required placeholder="enter.email">
-                            </div>
-                            <div class="input-line">
-                                <span class="prompt">></span>
-                                <textarea id="message" name="message" required placeholder="enter.message"></textarea>
-                            </div>
-                            <input type="text" name="_honey" style="display:none">
-                            <input type="hidden" name="_captcha" value="false">
-                            <button type="submit" class="terminal-btn">
-                                <span class="btn-text">EXECUTE.SEND</span>
-                                <div class="btn-glitch"></div>
-                            </button>
-                        </form>
+                    <span class="journey-company">Harrison.ai</span>
+                </div>
+
+                <div class="journey-card reveal">
+                    <span class="journey-year">2021 — 2023</span>
+                    <div class="journey-content">
+                        <h3>Senior Software Engineer</h3>
+                        <p>Reduced CDK deployment time from 1 hour to 15 minutes. Migrated high-transaction workloads from RDS to DynamoDB. Contributed to AWS CDK open source.</p>
+                    </div>
+                    <span class="journey-company">FoodHub</span>
+                </div>
+
+                <div class="journey-card reveal">
+                    <span class="journey-year">2019 — 2021</span>
+                    <div class="journey-content">
+                        <h3>Software & DevOps Engineer</h3>
+                        <p>Built cloud-native backend services on AWS. Implemented CI/CD pipelines and infrastructure automation.</p>
+                    </div>
+                    <span class="journey-company">Corezi</span>
+                </div>
+
+                <div class="journey-card reveal">
+                    <span class="journey-year">2017 — 2019</span>
+                    <div class="journey-content">
+                        <h3>Application Development Analyst</h3>
+                        <p>Designed and maintained backend services and APIs for enterprise-scale applications.</p>
+                    </div>
+                    <span class="journey-company">Accenture</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Craft Section -->
+        <section id="craft" class="craft-section">
+            <div class="reveal">
+                <span class="section-label">The Craft</span>
+                <h2 class="section-title">Tools I think with.</h2>
+                <p class="section-subtitle">Technologies are just tools. What matters is knowing when and why to use them.</p>
+            </div>
+
+            <div class="craft-grid">
+                <div class="craft-card reveal">
+                    <div class="craft-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>Backend</h3>
+                    <p>Building APIs and services that handle real-world complexity with grace.</p>
+                    <div class="craft-tags">
+                        <span class="craft-tag">Node.js</span>
+                        <span class="craft-tag">TypeScript</span>
+                        <span class="craft-tag">Python</span>
+                        <span class="craft-tag">Deno</span>
                     </div>
                 </div>
+
+                <div class="craft-card reveal">
+                    <div class="craft-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                    </div>
+                    <h3>Cloud & DevOps</h3>
+                    <p>Infrastructure that scales up, costs down, and deploys itself.</p>
+                    <div class="craft-tags">
+                        <span class="craft-tag">AWS</span>
+                        <span class="craft-tag">AWS CDK</span>
+                        <span class="craft-tag">Docker</span>
+                        <span class="craft-tag">Supabase</span>
+                    </div>
+                </div>
+
+                <div class="craft-card reveal">
+                    <div class="craft-icon">
+                        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    </div>
+                    <h3>Databases</h3>
+                    <p>Choosing the right database for the job — and making it fast.</p>
+                    <div class="craft-tags">
+                        <span class="craft-tag">PostgreSQL</span>
+                        <span class="craft-tag">MySQL</span>
+                        <span class="craft-tag">DynamoDB</span>
+                    </div>
+                </div>
+
+                <div class="craft-card reveal">
+                    <div class="craft-icon">
+                        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+                    </div>
+                    <h3>Mobile & Web</h3>
+                    <p>Cross-platform apps from a single codebase — web, Android, iOS.</p>
+                    <div class="craft-tags">
+                        <span class="craft-tag">Flutter</span>
+                        <span class="craft-tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Writing Section -->
+        <section id="writing" class="writing-section">
+            <div class="reveal">
+                <span class="section-label">Writing & Open Source</span>
+                <h2 class="section-title">Thinking out loud.</h2>
+                <p class="section-subtitle">Writing about technology, contributing to open source, and exploring the evolving relationship between humans and machines.</p>
+            </div>
+
+            <div class="writing-grid">
+                <a class="writing-card reveal" href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank" rel="noopener">
+                    <div class="writing-meta">
+                        <span class="writing-platform">Essay</span>
+                    </div>
+                    <h3>From Muscle to Mind to Machine: The Evolution of Human Value</h3>
+                    <p>We once valued physical strength. Then intelligence. Now, in the age of AI, what makes us valuable? A reflection on adaptation, creativity, and what remains uniquely human.</p>
+                    <span class="writing-link">Read essay →</span>
+                </a>
+
+                <a class="writing-card reveal" href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank" rel="noopener">
+                    <div class="writing-meta">
+                        <span class="writing-platform">Technical</span>
+                    </div>
+                    <h3>Fixing the AWS CDK Export Error That Drives Everyone Crazy</h3>
+                    <p>That frustrating "Export cannot be updated" error? Here's what causes it and how to fix it without tearing your hair out.</p>
+                    <span class="writing-link">Read article →</span>
+                </a>
+
+                <a class="writing-card reveal" href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank" rel="noopener">
+                    <div class="writing-meta">
+                        <span class="writing-platform">Technical</span>
+                    </div>
+                    <h3>Moving Resources Between CDK Stacks Without Breaking Everything</h3>
+                    <p>A step-by-step guide to migrating AWS resources between stacks safely. Because downtime is not an option.</p>
+                    <span class="writing-link">Read article →</span>
+                </a>
+
+                <a class="writing-card reveal" href="https://github.com/aws/aws-cdk/issues?q=author%3Aranjith-jagadeesh" target="_blank" rel="noopener">
+                    <div class="writing-meta">
+                        <span class="writing-platform">Open Source</span>
+                    </div>
+                    <h3>AWS CDK Contributions</h3>
+                    <p>Active contributor to the AWS CDK repository — creating issues and pull requests to improve functionality and fix bugs.</p>
+                    <span class="writing-link">View on GitHub →</span>
+                </a>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">Crafted with care. Built with <span class="highlight">purpose</span>.</p>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize noise canvas
-            const canvas = document.getElementById('noise-canvas');
-            const ctx = canvas.getContext('2d');
-            
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-            
-            function createNoise() {
-                const imageData = ctx.createImageData(canvas.width, canvas.height);
-                const data = imageData.data;
-                
-                for (let i = 0; i < data.length; i += 4) {
-                    const noise = Math.random() * 255;
-                    data[i] = data[i + 1] = data[i + 2] = noise;
-                    data[i + 3] = 15; // Alpha for subtle effect
-                }
-                
-                ctx.putImageData(imageData, 0, 0);
-            }
-            
-            function animateNoise() {
-                createNoise();
-                requestAnimationFrame(animateNoise);
-            }
-            
-            animateNoise();
+            const nav = document.getElementById('nav');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            const reveals = document.querySelectorAll('.reveal');
 
-            // Update system clock
-            function updateClock() {
-                const clock = document.querySelector('.status-clock');
-                const now = new Date();
-                const time = now.toTimeString().split(' ')[0];
-                clock.textContent = time;
-            }
-            
-            setInterval(updateClock, 1000);
-            updateClock();
+            // Calculate years of experience dynamically
+            const startDate = new Date('2017-01-22');
+            const now = new Date();
+            const years = Math.floor((now - startDate) / (365.25 * 24 * 60 * 60 * 1000));
+            document.getElementById('years-exp').textContent = years;
+            document.getElementById('years-journey').textContent = years;
 
-            // Navigation handling
-            const viewport = document.getElementById('viewport');
-            const sections = document.querySelectorAll('.viewport-section');
-            const navLinks = document.querySelectorAll('.nav-cmd');
-            
-            function activateSection(sectionId) {
-                const targetSection = document.getElementById(sectionId);
-                if (!targetSection) return;
+            // Navigation scroll effect
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.scrollY > 50);
+            });
 
-                sections.forEach(section => section.classList.remove('active'));
-                navLinks.forEach(link => link.classList.remove('active'));
-
-                targetSection.classList.add('active');
-                const activeLink = document.querySelector(`[href="#${sectionId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+            // Intersection Observer for active nav
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                        });
+                    }
                 });
-            }
+            }, { rootMargin: '-50% 0px -50% 0px' });
 
-            // Handle navigation clicks
+            sections.forEach(section => navObserver.observe(section));
+
+            // Intersection Observer for reveal animations
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Stagger the animations
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            reveals.forEach(reveal => revealObserver.observe(reveal));
+
+            // Smooth scroll for nav links
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const sectionId = link.getAttribute('href').substring(1);
-                    activateSection(sectionId);
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 });
             });
-
-            // Scroll handling with throttling
-            let lastScrollTime = 0;
-            const scrollThreshold = 50;
-
-            viewport.addEventListener('scroll', () => {
-                const now = Date.now();
-                if (now - lastScrollTime < scrollThreshold) return;
-                lastScrollTime = now;
-
-                const viewportRect = viewport.getBoundingClientRect();
-                const viewportMiddle = viewportRect.top + (viewportRect.height / 2);
-                
-                let closestSection = null;
-                let minDistance = Infinity;
-                
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const distance = Math.abs(rect.top + (rect.height / 2) - viewportMiddle);
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        closestSection = section;
-                    }
-                });
-                
-                if (closestSection && !closestSection.classList.contains('active')) {
-                    sections.forEach(section => section.classList.remove('active'));
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    
-                    closestSection.classList.add('active');
-                    const activeLink = document.querySelector(`[href="#${closestSection.id}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                    }
-                }
-            }, { passive: true });
-
-            // Matrix effect for role text
-            const matrixChars = document.querySelectorAll('.matrix-char');
-            
-            matrixChars.forEach((char, index) => {
-                setTimeout(() => {
-                    char.classList.add('revealed');
-                }, index * 100);
-            });
-
-            // Form handling with terminal-style feedback
-            const contactForm = document.getElementById('contactForm');
-            const terminalOutput = document.getElementById('terminalOutput');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    appendTerminalLine('Initiating transmission...');
-                    
-                    try {
-                        await fetch(contactForm.action, {
-                            method: 'POST',
-                            body: new FormData(contactForm)
-                        });
-                        
-                        appendTerminalLine('Transmission successful.');
-                        appendTerminalLine('Connection established.');
-                        contactForm.reset();
-                    } catch (error) {
-                        appendTerminalLine('ERROR: Transmission failed.');
-                        appendTerminalLine('Retrying connection...');
-                    }
-                });
-            }
-            
-            function appendTerminalLine(text) {
-                const line = document.createElement('div');
-                line.className = 'line';
-                line.textContent = text;
-                terminalOutput.appendChild(line);
-                terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            }
         });
     </script>
 </body>
