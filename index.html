@@ -10,116 +10,183 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Ambient Background Orbs -->
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
-    <div class="ambient-orb orb-3"></div>
 
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <a href="#home" class="nav-logo">RJ</a>
-        <ul class="nav-links">
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#journey" class="nav-link">Journey</a></li>
-            <li><a href="#craft" class="nav-link">Craft</a></li>
-            <li><a href="#writing" class="nav-link">Writing</a></li>
-        </ul>
-    </nav>
+    <div id="cursor"></div>
+
+    <!-- Floating Nav -->
+    <div class="nav-wrap">
+        <nav class="nav" id="nav">
+            <a href="#home" class="nav-logo">Ranjith <span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home"    class="nav-link active">Home</a></li>
+                <li><a href="#journey" class="nav-link">Journey</a></li>
+                <li><a href="#craft"   class="nav-link">Craft</a></li>
+                <li><a href="#writing" class="nav-link">Writing</a></li>
+            </ul>
+            <a href="https://www.linkedin.com/in/ranjith-jagadees/" target="_blank" rel="noopener" class="nav-cta">Connect →</a>
+        </nav>
+    </div>
 
     <main>
-        <!-- Hero Section -->
+
+        <!-- ── HERO ── -->
         <section id="home" class="hero">
-            <div class="hero-inner reveal">
-                <div class="avatar-container">
-                    <div class="avatar">
-                        <span class="avatar-placeholder">R</span>
-                    </div>
-                </div>
+            <div class="hero-eyebrow">
+                <div class="eyebrow-dot"></div>
+                Senior Software Engineer · Harrison.ai
+            </div>
 
-                <p class="hero-greeting">Hey, I'm</p>
-                <h1 class="hero-name">Ranjith Jagadeesh</h1>
-                <p class="hero-tagline">Building <span class="highlight">cloud-native systems</span> across<br>SaaS, AI, and regulated domains.</p>
-                <p class="hero-description">Senior Software Engineer with <span id="years-exp"></span>+ years in backend architecture, DevOps automation, and AI integration. Currently at Harrison.ai, shipping healthcare AI to secure environments worldwide.</p>
+            <h1 class="hero-name">
+                <span class="dark">Ranjith</span>
+                <span class="light">Jagadeesh</span>
+            </h1>
 
-                <div class="hero-links">
-                    <a href="https://www.linkedin.com/in/ranjith-jagadees/" target="_blank" rel="noopener" class="hero-link" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="https://github.com/ranjith-jagadeesh" target="_blank" rel="noopener" class="hero-link" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                    </a>
-                    <a href="https://medium.com/@ranjithkumarsid" target="_blank" rel="noopener" class="hero-link" aria-label="Medium">
-                        <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-                    </a>
+            <p class="hero-desc">
+                Building <strong>cloud-native systems</strong> across SaaS, AI,
+                and regulated healthcare environments worldwide.
+            </p>
+
+            <div class="stat-pills">
+                <div class="pill">
+                    <span class="pill-n" id="years-exp">9<em>+</em></span>
+                    <span class="pill-l">years experience</span>
                 </div>
+            </div>
+
+            <div class="hero-socials">
+                <a href="https://www.linkedin.com/in/ranjith-jagadees/" target="_blank" rel="noopener" class="hero-soc" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://github.com/ranjith-jagadeesh" target="_blank" rel="noopener" class="hero-soc" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+                <a href="https://medium.com/@ranjithkumarsid" target="_blank" rel="noopener" class="hero-soc" aria-label="Medium">
+                    <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                </a>
             </div>
         </section>
 
-        <!-- Journey Section -->
-        <section id="journey" class="journey-section">
-            <div class="reveal">
-                <span class="section-label">The Journey</span>
-                <h2 class="section-title">Building, learning, evolving.</h2>
-                <p class="section-subtitle"><span id="years-journey"></span> years of solving problems, shipping products, and growing alongside talented teams.</p>
+        <!-- ── JOURNEY ── -->
+        <section id="journey">
+            <div class="sec-divider"></div>
+            <div class="sec-header reveal">
+                <span class="sec-tag">// journey</span>
+                <h2 class="sec-title">Building, learning,<br><em>evolving.</em></h2>
             </div>
 
-            <div class="journey-grid">
-                <div class="journey-card reveal">
-                    <span class="journey-year">2023 — Now</span>
-                    <div class="journey-content">
-                        <h3>Senior Software Engineer</h3>
-                        <p>Migrated cloud systems into air-gapped Docker containers for secure hospital deployments. Integrated AI models and built post-processing pipelines.</p>
+            <div class="timeline">
+                <div class="tl-item reveal">
+                    <div>
+                        <span class="tl-yr">2023 — Now</span>
+                        <span class="tl-co">Harrison.ai</span>
                     </div>
-                    <span class="journey-company">Harrison.ai</span>
+                    <div class="tl-body">
+                        <h3>Senior Software Engineer</h3>
+                        <button class="tl-toggle" aria-expanded="false">
+                            <span class="tl-toggle-icon">+</span>
+                            <span class="tl-toggle-label">Show details</span>
+                        </button>
+                        <div class="tl-details" aria-hidden="true">
+                            <div class="tl-details-inner">
+                                <ul class="tl-list">
+                                    <li>Led the re-architecture of cloud-based medical imaging workflows into fully air-gapped on-prem container deployments, enabling distribution via Nuance PIN, Sectra Amplifier, and Blackford Platform across 40+ NHS trusts.</li>
+                                    <li>Developed DICOM secondary capture workflows for CTB and CXR products, rendering AI-generated segmentation overlays on medical images using automated headless browser pipelines.</li>
+                                    <li>Consolidated three independent Node.js services into a single npm-workspaces monorepo behind one Koa server, eliminating duplicate dependencies and reducing container image size by ~1 GB (~20%).</li>
+                                    <li>Integrated PyTorch and TensorFlow inference models via reusable libraries and built configurable rule-based pipelines to convert raw AI outputs into structured clinical results.</li>
+                                    <li>Mentored 2 junior engineers, conducted 20+ technical interviews, and collaborated across India, Australia, and ML teams on AI inference integration.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="journey-card reveal">
-                    <span class="journey-year">2021 — 2023</span>
-                    <div class="journey-content">
-                        <h3>Senior Software Engineer</h3>
-                        <p>Reduced CDK deployment time from 1 hour to 15 minutes. Migrated high-transaction workloads from RDS to DynamoDB. Contributed to AWS CDK open source.</p>
+                <div class="tl-item reveal">
+                    <div>
+                        <span class="tl-yr">2021 — 2023</span>
+                        <span class="tl-co">FoodHub</span>
                     </div>
-                    <span class="journey-company">FoodHub</span>
+                    <div class="tl-body">
+                        <h3>Senior Software Engineer — Architect Team</h3>
+                        <button class="tl-toggle" aria-expanded="false">
+                            <span class="tl-toggle-icon">+</span>
+                            <span class="tl-toggle-label">Show details</span>
+                        </button>
+                        <div class="tl-details" aria-hidden="true">
+                            <div class="tl-details-inner">
+                                <ul class="tl-list">
+                                    <li>Reduced AWS CDK deployment time by ~70% by parallelizing stack deployments through dependency-graph analysis and topological sorting.</li>
+                                    <li>Led the migration of a 200+ file TypeScript infrastructure codebase from AWS CDK v1 to v2 without downtime, resolving stack-state and deployment compatibility issues across environments.</li>
+                                    <li>Migrated high-transaction workloads from Amazon RDS to DynamoDB using single-table design, redesigning data access patterns for scalable backend operations.</li>
+                                    <li>Designed AWS AppSync GraphQL workflows with DynamoDB resolvers and real-time subscriptions for scalable backend systems.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="journey-card reveal">
-                    <span class="journey-year">2019 — 2021</span>
-                    <div class="journey-content">
+                <div class="tl-item reveal">
+                    <div>
+                        <span class="tl-yr">2019 — 2021</span>
+                        <span class="tl-co">Corezi</span>
+                    </div>
+                    <div class="tl-body">
                         <h3>Software & DevOps Engineer</h3>
-                        <p>Built cloud-native backend services on AWS. Implemented CI/CD pipelines and infrastructure automation.</p>
+                        <button class="tl-toggle" aria-expanded="false">
+                            <span class="tl-toggle-icon">+</span>
+                            <span class="tl-toggle-label">Show details</span>
+                        </button>
+                        <div class="tl-details" aria-hidden="true">
+                            <div class="tl-details-inner">
+                                <ul class="tl-list">
+                                    <li>Built serverless AWS backends using Lambda, Aurora RDS, Cognito, and CloudFormation for production-grade applications.</li>
+                                    <li>Co-developed an internal TypeScript framework on Express and TypeORM that automated CRUD API generation and database lifecycle workflows.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <span class="journey-company">Corezi</span>
                 </div>
 
-                <div class="journey-card reveal">
-                    <span class="journey-year">2017 — 2019</span>
-                    <div class="journey-content">
-                        <h3>Application Development Analyst</h3>
-                        <p>Designed and maintained backend services and APIs for enterprise-scale applications.</p>
+                <div class="tl-item reveal">
+                    <div>
+                        <span class="tl-yr">2017 — 2019</span>
+                        <span class="tl-co">Accenture</span>
                     </div>
-                    <span class="journey-company">Accenture</span>
+                    <div class="tl-body">
+                        <h3>Application Development Analyst</h3>
+                        <button class="tl-toggle" aria-expanded="false">
+                            <span class="tl-toggle-icon">+</span>
+                            <span class="tl-toggle-label">Show details</span>
+                        </button>
+                        <div class="tl-details" aria-hidden="true">
+                            <div class="tl-details-inner">
+                                <ul class="tl-list">
+                                    <li>Designed and maintained backend services and APIs for enterprise-scale applications across cross-functional teams.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Craft Section -->
-        <section id="craft" class="craft-section">
-            <div class="reveal">
-                <span class="section-label">The Craft</span>
-                <h2 class="section-title">Tools I think with.</h2>
-                <p class="section-subtitle">Technologies are just tools. What matters is knowing when and why to use them.</p>
+        <!-- ── CRAFT ── -->
+        <section id="craft">
+            <div class="sec-divider"></div>
+            <div class="sec-header reveal">
+                <span class="sec-tag">// craft</span>
+                <h2 class="sec-title">Tools I <em>think</em> with.</h2>
             </div>
 
-            <div class="craft-grid">
-                <div class="craft-card reveal">
+            <div class="craft-grid reveal">
+                <div class="craft-cell">
                     <div class="craft-icon">
                         <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                     </div>
-                    <h3>Backend</h3>
+                    <h4>Backend</h4>
                     <p>Building APIs and services that handle real-world complexity with grace.</p>
                     <div class="craft-tags">
                         <span class="craft-tag">Node.js</span>
@@ -129,11 +196,11 @@
                     </div>
                 </div>
 
-                <div class="craft-card reveal">
+                <div class="craft-cell">
                     <div class="craft-icon">
                         <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
                     </div>
-                    <h3>Cloud & DevOps</h3>
+                    <h4>Cloud & DevOps</h4>
                     <p>Infrastructure that scales up, costs down, and deploys itself.</p>
                     <div class="craft-tags">
                         <span class="craft-tag">AWS</span>
@@ -143,11 +210,11 @@
                     </div>
                 </div>
 
-                <div class="craft-card reveal">
+                <div class="craft-cell">
                     <div class="craft-icon">
                         <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
                     </div>
-                    <h3>Databases</h3>
+                    <h4>Databases</h4>
                     <p>Choosing the right database for the job — and making it fast.</p>
                     <div class="craft-tags">
                         <span class="craft-tag">PostgreSQL</span>
@@ -156,11 +223,11 @@
                     </div>
                 </div>
 
-                <div class="craft-card reveal">
+                <div class="craft-cell">
                     <div class="craft-icon">
                         <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
                     </div>
-                    <h3>Mobile & Web</h3>
+                    <h4>Mobile & Web</h4>
                     <p>Cross-platform apps from a single codebase — web, Android, iOS.</p>
                     <div class="craft-tags">
                         <span class="craft-tag">Flutter</span>
@@ -170,80 +237,111 @@
             </div>
         </section>
 
-        <!-- Writing Section -->
-        <section id="writing" class="writing-section">
-            <div class="reveal">
-                <span class="section-label">Writing & Open Source</span>
-                <h2 class="section-title">Thinking out loud.</h2>
-                <p class="section-subtitle">Writing about technology, contributing to open source, and exploring the evolving relationship between humans and machines.</p>
+        <!-- ── WRITING ── -->
+        <section id="writing">
+            <div class="sec-divider"></div>
+            <div class="sec-header reveal">
+                <span class="sec-tag">// writing & open source</span>
+                <h2 class="sec-title">Thinking <em>out loud.</em></h2>
             </div>
 
-            <div class="writing-grid">
-                <a class="writing-card reveal" href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank" rel="noopener">
-                    <div class="writing-meta">
-                        <span class="writing-platform">Essay</span>
-                    </div>
-                    <h3>From Muscle to Mind to Machine: The Evolution of Human Value</h3>
-                    <p>We once valued physical strength. Then intelligence. Now, in the age of AI, what makes us valuable? A reflection on adaptation, creativity, and what remains uniquely human.</p>
-                    <span class="writing-link">Read essay →</span>
-                </a>
+            <!-- Featured Essay -->
+            <a class="writing-featured reveal" href="https://medium.com/@ranjithkumarsid/from-muscle-to-mind-to-machine-the-evolution-of-human-value-f9b93c6ea508" target="_blank" rel="noopener">
+                <span class="w-platform">Essay</span>
+                <h3>From Muscle to Mind to Machine:<br>The Evolution of Human Value</h3>
+                <p class="w-excerpt">"We once valued physical strength. Then intelligence. Now, in the age of AI, what makes us valuable?"</p>
+                <span class="writing-link">Read essay →</span>
+            </a>
 
-                <a class="writing-card reveal" href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank" rel="noopener">
-                    <div class="writing-meta">
-                        <span class="writing-platform">Technical</span>
-                    </div>
+            <!-- Technical Articles -->
+            <div class="writing-articles reveal">
+                <a class="writing-article" href="https://medium.com/@ranjithkumarsid/fix-aws-cdk-export-export-name-cannot-be-updated-as-it-is-in-use-by-stack-name-8a419b152b9d" target="_blank" rel="noopener">
+                    <span class="w-platform">Technical</span>
                     <h3>Fixing the AWS CDK Export Error That Drives Everyone Crazy</h3>
-                    <p>That frustrating "Export cannot be updated" error? Here's what causes it and how to fix it without tearing your hair out.</p>
+                    <p>That frustrating "Export cannot be updated" error? Here's what causes it and how to fix it.</p>
                     <span class="writing-link">Read article →</span>
                 </a>
-
-                <a class="writing-card reveal" href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank" rel="noopener">
-                    <div class="writing-meta">
-                        <span class="writing-platform">Technical</span>
-                    </div>
+                <a class="writing-article" href="https://medium.com/@ranjithkumarsid/cdk-how-to-move-resources-from-one-stack-to-another-stack-77697ebac3a0" target="_blank" rel="noopener">
+                    <span class="w-platform">Technical</span>
                     <h3>Moving Resources Between CDK Stacks Without Breaking Everything</h3>
-                    <p>A step-by-step guide to migrating AWS resources between stacks safely. Because downtime is not an option.</p>
+                    <p>A step-by-step guide to migrating AWS resources between stacks safely.</p>
                     <span class="writing-link">Read article →</span>
-                </a>
-
-                <a class="writing-card reveal" href="https://github.com/aws/aws-cdk/issues?q=author%3Aranjith-jagadeesh" target="_blank" rel="noopener">
-                    <div class="writing-meta">
-                        <span class="writing-platform">Open Source</span>
-                    </div>
-                    <h3>AWS CDK Contributions</h3>
-                    <p>Active contributor to the AWS CDK repository — creating issues and pull requests to improve functionality and fix bugs.</p>
-                    <span class="writing-link">View on GitHub →</span>
                 </a>
             </div>
+
+            <!-- Open Source -->
+            <a class="writing-oss reveal" href="https://github.com/aws/aws-cdk/pulls?q=is%3Apr+author%3Aranjith-jagadeesh+is%3Amerged" target="_blank" rel="noopener">
+                <div class="oss-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </div>
+                <div class="oss-body">
+                    <span class="oss-label">Open Source</span>
+                    <h3>AWS CDK Contributions</h3>
+                    <p>Merged pull requests and issue investigations in the AWS CDK repository.</p>
+                </div>
+                <span class="oss-arrow">View on GitHub →</span>
+            </a>
         </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p class="footer-text">Crafted with care. Built with <span class="highlight">purpose</span>.</p>
-    </footer>
+    <footer class="footer"></footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const nav = document.getElementById('nav');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section');
-            const reveals = document.querySelectorAll('.reveal');
 
-            // Calculate years of experience dynamically
-            const startDate = new Date('2017-01-22');
-            const now = new Date();
-            const years = Math.floor((now - startDate) / (365.25 * 24 * 60 * 60 * 1000));
-            document.getElementById('years-exp').textContent = years;
-            document.getElementById('years-journey').textContent = years;
+            // ── Smooth lagging cursor ──
+            const cursor = document.getElementById('cursor');
+            let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+            let cx = mx, cy = my;
+            const LERP = 0.12;
 
-            // Navigation scroll effect
-            window.addEventListener('scroll', () => {
-                nav.classList.toggle('scrolled', window.scrollY > 50);
+            document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
             });
 
-            // Intersection Observer for active nav
-            const navObserver = new IntersectionObserver((entries) => {
+            function tickCursor() {
+                cx += (mx - cx) * LERP;
+                cy += (my - cy) * LERP;
+                cursor.style.left = cx + 'px';
+                cursor.style.top  = cy + 'px';
+                requestAnimationFrame(tickCursor);
+            }
+            tickCursor();
+
+            // ── Years count-up ──
+            const totalYears = Math.floor((Date.now() - new Date('2017-01-22')) / (365.25 * 24 * 60 * 60 * 1000));
+            const yEl = document.getElementById('years-exp');
+
+            function countUp(el, target, duration = 1200) {
+                const start = performance.now();
+                function step(now) {
+                    const p = Math.min((now - start) / duration, 1);
+                    const ease = 1 - Math.pow(1 - p, 3);
+                    el.innerHTML = `${Math.floor(ease * target)}<em>+</em>`;
+                    if (p < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+
+            if (yEl) {
+                yEl.innerHTML = `0<em>+</em>`;
+                const pillObs = new IntersectionObserver(entries => {
+                    if (entries[0].isIntersecting) {
+                        countUp(yEl, totalYears);
+                        pillObs.disconnect();
+                    }
+                }, { threshold: 0.5 });
+                pillObs.observe(yEl.closest('.pill'));
+            }
+
+            // ── Active nav link ──
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+
+            const navObserver = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
@@ -254,31 +352,55 @@
                 });
             }, { rootMargin: '-50% 0px -50% 0px' });
 
-            sections.forEach(section => navObserver.observe(section));
+            sections.forEach(s => navObserver.observe(s));
 
-            // Intersection Observer for reveal animations
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
+            // ── Section divider draw-in ──
+            const dividerObs = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Stagger the animations
-                        setTimeout(() => {
-                            entry.target.classList.add('visible');
-                        }, index * 100);
+                        entry.target.classList.add('visible');
+                        dividerObs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.sec-divider').forEach(el => dividerObs.observe(el));
+
+            // ── Reveal on scroll with stagger ──
+            const revealObserver = new IntersectionObserver(entries => {
+                // Group entries by their parent to stagger siblings
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const siblings = Array.from(
+                            entry.target.parentElement.querySelectorAll('.reveal:not(.visible)')
+                        );
+                        const idx = siblings.indexOf(entry.target);
+                        setTimeout(() => entry.target.classList.add('visible'), Math.max(0, idx) * 80);
                         revealObserver.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-            reveals.forEach(reveal => revealObserver.observe(reveal));
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-            // Smooth scroll for nav links
+            // ── Expand / collapse timeline ──
+            document.querySelectorAll('.tl-toggle').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const details = btn.nextElementSibling;
+                    const isOpen = details.classList.contains('open');
+                    details.classList.toggle('open', !isOpen);
+                    details.setAttribute('aria-hidden', isOpen);
+                    btn.setAttribute('aria-expanded', !isOpen);
+                    btn.classList.toggle('open', !isOpen);
+                    btn.querySelector('.tl-toggle-label').textContent = isOpen ? 'Show details' : 'Hide details';
+                });
+            });
+
+            // ── Smooth scroll ──
             navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
+                link.addEventListener('click', e => {
                     e.preventDefault();
                     const target = document.querySelector(link.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
                 });
             });
         });
