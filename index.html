@@ -289,23 +289,55 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Cursor
+
+            // ── Smooth lagging cursor ──
             const cursor = document.getElementById('cursor');
-            document.addEventListener('mousemove', e => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top  = e.clientY + 'px';
-            });
+            let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+            let cx = mx, cy = my;
+            const LERP = 0.12;
+
+            document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
             document.querySelectorAll('a, button').forEach(el => {
                 el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
                 el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
             });
 
-            // Dynamic years of experience
-            const years = Math.floor((Date.now() - new Date('2017-01-22')) / (365.25 * 24 * 60 * 60 * 1000));
-            const yEl = document.getElementById('years-exp');
-            if (yEl) yEl.innerHTML = `${years}<em>+</em>`;
+            function tickCursor() {
+                cx += (mx - cx) * LERP;
+                cy += (my - cy) * LERP;
+                cursor.style.left = cx + 'px';
+                cursor.style.top  = cy + 'px';
+                requestAnimationFrame(tickCursor);
+            }
+            tickCursor();
 
-            // Active nav link
+            // ── Years count-up ──
+            const totalYears = Math.floor((Date.now() - new Date('2017-01-22')) / (365.25 * 24 * 60 * 60 * 1000));
+            const yEl = document.getElementById('years-exp');
+
+            function countUp(el, target, duration = 1200) {
+                const start = performance.now();
+                function step(now) {
+                    const p = Math.min((now - start) / duration, 1);
+                    const ease = 1 - Math.pow(1 - p, 3);
+                    el.innerHTML = `${Math.floor(ease * target)}<em>+</em>`;
+                    if (p < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+
+            if (yEl) {
+                yEl.innerHTML = `0<em>+</em>`;
+                const pillObs = new IntersectionObserver(entries => {
+                    if (entries[0].isIntersecting) {
+                        countUp(yEl, totalYears);
+                        pillObs.disconnect();
+                    }
+                }, { threshold: 0.5 });
+                pillObs.observe(yEl.closest('.pill'));
+            }
+
+            // ── Active nav link ──
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('section[id]');
 
@@ -322,11 +354,27 @@
 
             sections.forEach(s => navObserver.observe(s));
 
-            // Reveal on scroll
-            const revealObserver = new IntersectionObserver(entries => {
-                entries.forEach((entry, i) => {
+            // ── Section divider draw-in ──
+            const dividerObs = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        setTimeout(() => entry.target.classList.add('visible'), i * 110);
+                        entry.target.classList.add('visible');
+                        dividerObs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.sec-divider').forEach(el => dividerObs.observe(el));
+
+            // ── Reveal on scroll with stagger ──
+            const revealObserver = new IntersectionObserver(entries => {
+                // Group entries by their parent to stagger siblings
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const siblings = Array.from(
+                            entry.target.parentElement.querySelectorAll('.reveal:not(.visible)')
+                        );
+                        const idx = siblings.indexOf(entry.target);
+                        setTimeout(() => entry.target.classList.add('visible'), Math.max(0, idx) * 80);
                         revealObserver.unobserve(entry.target);
                     }
                 });
@@ -334,7 +382,7 @@
 
             document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-            // Expand / collapse timeline details
+            // ── Expand / collapse timeline ──
             document.querySelectorAll('.tl-toggle').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const details = btn.nextElementSibling;
@@ -347,7 +395,7 @@
                 });
             });
 
-            // Smooth scroll
+            // ── Smooth scroll ──
             navLinks.forEach(link => {
                 link.addEventListener('click', e => {
                     e.preventDefault();

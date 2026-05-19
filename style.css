@@ -69,6 +69,11 @@ body::before {
 .nav-wrap {
     position: fixed; top: 1.25rem; left: 50%; transform: translateX(-50%);
     z-index: 100; width: calc(100% - 4rem); max-width: 860px;
+    opacity: 0; animation: nav-drop .6s cubic-bezier(0.4, 0, 0.2, 1) .3s forwards;
+}
+@keyframes nav-drop {
+    from { opacity: 0; transform: translateX(-50%) translateY(-12px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 .nav {
@@ -151,10 +156,15 @@ body::before {
     letter-spacing: -0.04em;
     line-height: 0.95;
     margin-bottom: 0.2em;
-    opacity: 0; animation: fade-up .9s ease .2s forwards;
 }
-.hero-name .dark  { color: var(--text); display: block; }
-.hero-name .light { color: var(--muted); display: block; font-weight: 300; font-style: italic; }
+.hero-name .dark {
+    color: var(--text); display: block;
+    opacity: 0; animation: fade-up .8s cubic-bezier(0.4, 0, 0.2, 1) .2s forwards;
+}
+.hero-name .light {
+    color: var(--muted); display: block; font-weight: 300; font-style: italic;
+    opacity: 0; animation: fade-up .8s cubic-bezier(0.4, 0, 0.2, 1) .38s forwards;
+}
 
 .hero-desc {
     font-size: clamp(1rem, 1.8vw, 1.25rem);
@@ -216,10 +226,14 @@ section {
 }
 
 .sec-divider {
-    width: 100%; height: 1px;
+    height: 1px;
     background: var(--border);
     margin-bottom: 4rem;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.sec-divider.visible { transform: scaleX(1); }
 
 .sec-header {
     text-align: center; margin-bottom: 4rem;
