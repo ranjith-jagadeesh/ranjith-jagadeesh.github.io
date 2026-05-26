@@ -290,26 +290,16 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // ── Smooth lagging cursor ──
+            // ── Custom cursor (follows mouse exactly) ──
             const cursor = document.getElementById('cursor');
-            let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-            let cx = mx, cy = my;
-            const LERP = 0.12;
 
-            document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+            document.addEventListener('mousemove', e => {
+                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+            });
             document.querySelectorAll('a, button').forEach(el => {
                 el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
                 el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
             });
-
-            function tickCursor() {
-                cx += (mx - cx) * LERP;
-                cy += (my - cy) * LERP;
-                cursor.style.left = cx + 'px';
-                cursor.style.top  = cy + 'px';
-                requestAnimationFrame(tickCursor);
-            }
-            tickCursor();
 
             // ── Years count-up ──
             const totalYears = Math.floor((Date.now() - new Date('2017-01-22')) / (365.25 * 24 * 60 * 60 * 1000));

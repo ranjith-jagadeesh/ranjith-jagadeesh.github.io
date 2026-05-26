@@ -34,9 +34,8 @@
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-    transform: translate(-50%, -50%);
     transition: width .22s, height .22s, background .22s;
-    will-change: left, top;
+    will-change: transform;
 }
 #cursor.hovering {
     width: 32px; height: 32px;
