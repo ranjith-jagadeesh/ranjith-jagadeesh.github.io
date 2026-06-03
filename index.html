@@ -69,8 +69,6 @@
                 <span>Harrison.ai</span>
                 <span class="proof-sep">·</span>
                 <span>ex-FoodHub</span>
-                <span class="proof-sep">·</span>
-                <span>AWS CDK contributor</span>
             </div>
 
             <div class="hero-rail" aria-hidden="true">
@@ -578,9 +576,9 @@ B.E., PSG College of Technology, 2016.
                 ask(input.value);
             });
 
-            // Progressive enhancement: only reveal the AI entry points (hero ask-bar +
-            // chat launcher) if the on-device model is actually ready. Sets `body.ai-ready`,
-            // which the gated CSS rules in style.css use to show the AI UI. Otherwise it stays hidden.
+            // Progressive enhancement: reveal the AI entry points (hero ask-bar + chat
+            // launcher) only when the on-device model is ready. If it's mid-download, drive
+            // it to completion (logging %), then reveal automatically — no reload needed.
             (async function reveal() {
                 try {
                     if (!('LanguageModel' in self)) {
@@ -589,11 +587,34 @@ B.E., PSG College of Technology, 2016.
                     }
                     const a = await LanguageModel.availability();
                     console.log('[Ask AI] init availability:', a);
+
                     if (a === 'available') {
                         document.body.classList.add('ai-ready');
-                    } else {
-                        console.log('[Ask AI] model not ready ("' + a + '") — hiding AI UI.');
+                        return;
                     }
+
+                    if (a === 'downloading') {
+                        // Model is already downloading on this device. Creating a session
+                        // attaches to (and drives) that download; it resolves when ready.
+                        console.log('[Ask AI] model downloading — driving it to completion; UI appears when ready.');
+                        try {
+                            session = await LanguageModel.create({
+                                initialPrompts: [{ role: 'system', content: SYSTEM_PROMPT }],
+                                monitor(m) {
+                                    m.addEventListener('downloadprogress', e => {
+                                        console.log('[Ask AI] download ' + Math.round(e.loaded * 100) + '%');
+                                    });
+                                }
+                            });
+                            document.body.classList.add('ai-ready');
+                            console.log('[Ask AI] model ready — UI revealed.');
+                        } catch (e) {
+                            console.warn('[Ask AI] driving the download failed — staying hidden.', e);
+                        }
+                        return;
+                    }
+
+                    console.log('[Ask AI] model not ready ("' + a + '") — hiding AI UI.');
                 } catch (e) {
                     console.warn('[Ask AI] availability check failed — hiding AI UI.', e);
                 }
