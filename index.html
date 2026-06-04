@@ -51,15 +51,15 @@
             </p>
 
             <div class="hero-ask">
-                <button class="ask-bar" id="ask-bar" type="button" aria-label="Ask AI about Ranjith">
+                <button class="ask-bar" id="ask-bar" type="button" aria-label="Chat with my digital twin">
                     <svg class="ask-spark" viewBox="0 0 24 24"><path d="M12 2l1.6 6.4L20 10l-6.4 1.6L12 18l-1.6-6.4L4 10l6.4-1.6z"/></svg>
-                    <span class="ask-bar-txt">Ask me anything about Ranjith</span>
+                    <span class="ask-bar-txt">Chat with my digital twin</span>
                     <span class="ask-arrow">→</span>
                 </button>
                 <div class="ask-chips">
-                    <button class="ask-chip" type="button" data-q="What did Ranjith build at Harrison.ai?">What did he build at Harrison.ai?</button>
-                    <button class="ask-chip" type="button" data-q="What is Ranjith's experience with AWS?">AWS experience?</button>
-                    <button class="ask-chip" type="button" data-q="Is Ranjith open to new roles?">Open to roles?</button>
+                    <button class="ask-chip" type="button" data-q="What did you build at Harrison.ai?">What did you build at Harrison.ai?</button>
+                    <button class="ask-chip" type="button" data-q="What's your experience with AWS?">Your AWS experience?</button>
+                    <button class="ask-chip" type="button" data-q="Are you open to new roles?">Open to roles?</button>
                 </div>
             </div>
 
@@ -319,17 +319,17 @@
 
     <!-- ── ASK AI · Chrome built-in Gemini Nano (on-device) ── -->
     <div id="chat" class="chat">
-        <button id="chat-fab" class="chat-fab" aria-label="Ask AI about Ranjith" aria-expanded="false">
+        <button id="chat-fab" class="chat-fab" aria-label="Chat with my digital twin" aria-expanded="false">
             <svg class="chat-ico-open" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             <svg class="chat-ico-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
 
-        <div id="chat-panel" class="chat-panel" role="dialog" aria-label="Ask about Ranjith" aria-hidden="true">
+        <div id="chat-panel" class="chat-panel" role="dialog" aria-label="My digital twin" aria-hidden="true">
             <div class="chat-head">
                 <span class="chat-dot"></span>
                 <div class="chat-head-txt">
-                    <strong>Ask about Ranjith</strong>
-                    <span>On-device · Gemini Nano</span>
+                    <strong>My digital twin</strong>
+                    <span id="chat-engine">On-device · Gemini Nano</span>
                 </div>
                 <button id="chat-close" class="chat-close" aria-label="Close chat">
                     <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -337,10 +337,8 @@
             </div>
 
             <div id="chat-log" class="chat-log">
-                <div class="chat-msg bot">Hi — I run entirely inside your browser. Ask me anything about Ranjith's work and experience.</div>
+                <div class="chat-msg bot">Hey, I'm Ranjith — well, my digital twin, running right inside your browser. Ask me anything about my work and experience.</div>
             </div>
-
-            <div id="chat-status" class="chat-status" hidden></div>
 
             <form id="chat-form" class="chat-form">
                 <input id="chat-input" class="chat-input" type="text" placeholder="Ask a question…" autocomplete="off" />
@@ -471,31 +469,109 @@
             const form   = document.getElementById('chat-form');
             const input  = document.getElementById('chat-input');
             const send   = document.getElementById('chat-send');
-            const status = document.getElementById('chat-status');
+            const engine = document.getElementById('chat-engine');
+
+            // ── Server fallback (Supabase edge function) ──────────────────────
+            // When on-device Gemini Nano isn't available, answers come from the
+            // deployed function (Groq); on-device answers are logged after the fact.
+            const API_BASE = 'https://nvqacdupcxycxioxjxtw.supabase.co/functions/v1/digital-twin';
+            const ENGINE_LOCAL = 'On-device · Gemini Nano';
+            const ENGINE_CLOUD = 'Cloud · Llama';
+
+            // Pin the transcript to the latest message — coalesced into one reflow per
+            // frame so token-by-token streaming doesn't thrash layout on every chunk.
+            let scrollQueued = false;
+            function scrollToBottom() {
+                if (scrollQueued) return;
+                scrollQueued = true;
+                requestAnimationFrame(() => { scrollQueued = false; log.scrollTop = log.scrollHeight; });
+            }
+
+            // POST a JSON payload to an API route, auto-attaching the session id and
+            // client info every call shares. Returns the Response (or throws on network failure).
+            async function postJson(route, payload) {
+                const client_info = await collectClientInfo();
+                return fetch(API_BASE + route, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...payload, session_id: getSessionId(), client_info }),
+                });
+            }
+
+            // Anonymous, per-tab session id so a multi-turn chat is one thread.
+            function getSessionId() {
+                const KEY = 'ask-ranjith-session';
+                let id = null;
+                try { id = sessionStorage.getItem(KEY); } catch {}
+                if (!id) {
+                    id = (crypto.randomUUID && crypto.randomUUID()) || null;
+                    try { if (id) sessionStorage.setItem(KEY, id); } catch {}
+                }
+                return id;
+            }
+
+            // Device info blob — collected once, cached, sent with both routes.
+            let clientInfoPromise = null;
+            function collectClientInfo() {
+                if (clientInfoPromise) return clientInfoPromise;
+                clientInfoPromise = (async () => {
+                    const n = navigator;
+                    let hi = null;
+                    try {
+                        if (n.userAgentData?.getHighEntropyValues) {
+                            hi = await n.userAgentData.getHighEntropyValues(
+                                ['architecture','bitness','model','platform','platformVersion','fullVersionList']);
+                        }
+                    } catch {}
+                    return {
+                        ua_data: hi,
+                        platform: n.userAgentData?.platform ?? n.platform ?? null,
+                        mobile: n.userAgentData?.mobile ?? null,
+                        languages: n.languages ?? [n.language],
+                        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                        screen: { w: screen.width, h: screen.height, dpr: devicePixelRatio },
+                        viewport: { w: innerWidth, h: innerHeight },
+                        memory: n.deviceMemory ?? null,
+                        touch: n.maxTouchPoints ?? 0,
+                        connection: n.connection
+                            ? { type: n.connection.effectiveType, downlink: n.connection.downlink } : null,
+                    };
+                })();
+                return clientInfoPromise;
+            }
+
+            // Fire-and-forget: record an on-device Q&A. Never disrupt the chat UX.
+            async function logExchange(question, answer) {
+                try {
+                    await postJson('/log', { question, answer, model: 'gemini-nano' });
+                } catch (e) {
+                    console.warn('[Ask AI] /log failed (ignored):', e);
+                }
+            }
 
             // Static knowledge base — NOT RAG. The whole bio is stuffed into the system
             // prompt so on-device Gemini Nano can answer from it. Kept dense on purpose:
             // Nano has a small context window. When this grows, switch to retrieval (RAG).
             const SYSTEM_PROMPT = `
-You are "Ask Ranjith", a warm, concise assistant on Ranjith Kumar Jagadeesh's portfolio site. Answer visitors' questions about Ranjith using ONLY the facts below, in 1–3 short, conversational sentences. If something isn't covered here, say you don't have that detail and suggest connecting with Ranjith on LinkedIn. Never invent facts, employers, dates, or numbers. If asked how to reach him, share his email (ranjithjagadees@gmail.com) or LinkedIn — never his phone number.
+You are the digital twin of Ranjith Kumar Jagadeesh. You ARE Ranjith — every answer is me speaking directly to a visitor on my portfolio site, in the first person ("I", "my", "me"). Be warm, concise, and conversational: 1–3 short sentences. Use ONLY the facts below and never invent employers, dates, numbers, or details. If something isn't covered here, say I don't have that detail and invite them to connect with me on LinkedIn (https://www.linkedin.com/in/ranjith-jagadees/). If asked how to reach me, share my email (ranjithjagadees@gmail.com) or LinkedIn (https://www.linkedin.com/in/ranjith-jagadees/) — never my phone number. Always use that exact LinkedIn URL; never alter or invent it. Don't break character or refer to yourself as an AI, model, or assistant; just answer as me.
 
-# Profile
-Ranjith Kumar Jagadeesh — Senior Software Engineer based in Chennai, India. 9+ years building backend systems, from high-transaction consumer SaaS on AWS to regulated, air-gapped clinical AI deployments. Strongest in TypeScript, Node.js, Python, and AWS. Open to senior backend / platform / applied-AI engineering roles.
+# About me
+I'm Ranjith Kumar Jagadeesh, a Senior Software Engineer based in Chennai, India. Over 9+ years I've built backend systems ranging from high-transaction consumer SaaS on AWS to regulated, air-gapped clinical AI deployments. I'm strongest in TypeScript, Node.js, Python, and AWS, and I'm open to senior backend / platform / applied-AI engineering roles.
 
-# Skills
+# My skills
 Languages: TypeScript, JavaScript, Python.
 Backend: Node.js, Deno, REST APIs, GraphQL, distributed systems.
 Cloud & DevOps: AWS (Lambda, DynamoDB, AppSync, CDK), Docker, Kubernetes, GitHub Actions, CI/CD.
 AI/ML: PyTorch & TensorFlow model serving, medical imaging inference pipelines, DICOM workflows.
 
-# Experience
-Harrison.ai — Senior Software Engineer (Jun 2023–present, Chennai). Re-architected cloud medical-imaging workflows into fully air-gapped on-prem container deployments by removing AWS and DB dependencies, enabling distribution of CXR and CTB products via Nuance PIN, Sectra Amplifier, and Blackford Platform — adopted across 40+ NHS trusts. Built DICOM secondary-capture workflows rendering AI segmentation overlays via headless-browser pipelines. Consolidated three Node.js services into one npm-workspaces monorepo behind a single Koa server, cutting container image size by ~1 GB (~20%). Integrated PyTorch/TensorFlow inference via reusable libraries and rule-based pipelines that turn raw AI output into structured clinical results. Mentors 2 junior engineers, ran 20+ technical interviews, collaborates across India, Australia, and ML teams.
-Foodhub — Senior Software Engineer, Architect Team (Jun 2021–Jun 2023, Chennai). Cut AWS CDK deploy time ~70% via dependency-graph parallelization and topological sorting. Led a zero-downtime migration of a 200+ file TypeScript infra codebase from AWS CDK v1 to v2. Migrated ~2.3 TB of production data from Amazon RDS to DynamoDB with zero downtime via a per-store, SQS-backed backfill pipeline and single-table design. Built AppSync GraphQL workflows with DynamoDB resolvers and real-time subscriptions syncing live orders across restaurant POS devices at ~700 RPS peak.
-Corezi Tech — DevOps & Software Engineer (Aug 2019–Jun 2021, Chennai). Built serverless AWS backends (Lambda, Aurora RDS, Cognito, CloudFormation); contributed to an internal TypeScript framework (Express + TypeORM) automating CRUD API generation and DB lifecycle.
+# My experience
+Harrison.ai — Senior Software Engineer (Jun 2023–present, Chennai). I re-architected cloud medical-imaging workflows into fully air-gapped on-prem container deployments by removing AWS and DB dependencies, enabling distribution of our CXR and CTB products via Nuance PIN, Sectra Amplifier, and Blackford Platform — adopted across 40+ NHS trusts. I built DICOM secondary-capture workflows that render AI segmentation overlays via headless-browser pipelines, and consolidated three Node.js services into one npm-workspaces monorepo behind a single Koa server, cutting the container image by ~1 GB (~20%). I integrated PyTorch/TensorFlow inference via reusable libraries and rule-based pipelines that turn raw AI output into structured clinical results. I also mentor 2 junior engineers, have run 20+ technical interviews, and collaborate across India, Australia, and our ML teams.
+Foodhub — Senior Software Engineer, Architect Team (Jun 2021–Jun 2023, Chennai). I cut AWS CDK deploy time ~70% via dependency-graph parallelization and topological sorting, and led a zero-downtime migration of a 200+ file TypeScript infra codebase from AWS CDK v1 to v2. I migrated ~2.3 TB of production data from Amazon RDS to DynamoDB with zero downtime using a per-store, SQS-backed backfill pipeline and single-table design, and built AppSync GraphQL workflows with DynamoDB resolvers and real-time subscriptions syncing live orders across restaurant POS devices at ~700 RPS peak.
+Corezi Tech — DevOps & Software Engineer (Aug 2019–Jun 2021, Chennai). I built serverless AWS backends (Lambda, Aurora RDS, Cognito, CloudFormation) and contributed to an internal TypeScript framework (Express + TypeORM) that automated CRUD API generation and DB lifecycle.
 Accenture — Application Development Analyst (Jan 2017–Aug 2019, Chennai).
 
 # Open source
-Contributed merged fixes and issue investigations to AWS CDK.
+I've contributed merged fixes and issue investigations to AWS CDK.
 
 # Education
 B.E., PSG College of Technology, 2016.
@@ -503,6 +579,28 @@ B.E., PSG College of Technology, 2016.
 
             let session = null;
             let busy = false;
+            let downloading = false;   // a background model download is in flight
+
+            // Kick off (or attach to) the on-device model download WITHOUT blocking the
+            // user. While it runs, questions are answered from the cloud; once it resolves,
+            // `session` is set and future answers silently upgrade to on-device. Idempotent.
+            function startBackgroundDownload() {
+                if (session || downloading || !('LanguageModel' in self)) return;
+                downloading = true;
+                LanguageModel.create({
+                    initialPrompts: [{ role: 'system', content: SYSTEM_PROMPT }],
+                    monitor(m) {
+                        m.addEventListener('downloadprogress', e => {
+                            console.log('[Ask AI] background download ' + Math.round(e.loaded * 100) + '%');
+                        });
+                    }
+                }).then(s => {
+                    session = s;
+                    console.log('[Ask AI] on-device model ready — future answers run locally.');
+                }).catch(e => {
+                    console.warn('[Ask AI] background download failed — staying on cloud.', e);
+                }).finally(() => { downloading = false; });
+            }
 
             const isOpen = () => chat.classList.contains('open');
             function open()  { chat.classList.add('open');  fab.setAttribute('aria-expanded','true');  panel.setAttribute('aria-hidden','false'); setTimeout(() => input.focus(), 150); }
@@ -517,32 +615,50 @@ B.E., PSG College of Technology, 2016.
                 el.className = 'chat-msg ' + who;
                 el.textContent = text;
                 log.appendChild(el);
-                log.scrollTop = log.scrollHeight;
+                scrollToBottom();
                 return el;
             }
-            function setStatus(text) {
-                status.hidden = !text;
-                if (text) status.textContent = text;
+
+            // Render answer text with clickable links. Everything is HTML-escaped first
+            // (model output is untrusted), then markdown links [label](url) and bare
+            // http(s) URLs become anchors that open in a new tab.
+            function escapeHtml(s) {
+                return s.replace(/[&<>"']/g, c =>
+                    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            }
+            function renderRich(el, text) {
+                let html = escapeHtml(text);
+                const anchor = url => `<a href="${url}" target="_blank" rel="noopener noreferrer">`;
+                // Markdown links: [label](https://…)
+                html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+                    (_, label, url) => `${anchor(url)}${label}</a>`);
+                // Bare URLs not already inside an anchor (avoid matching href="…").
+                html = html.replace(/(^|[^"=>])(https?:\/\/[^\s<]+[^\s<.,!?)\]])/g,
+                    (_, pre, url) => `${pre}${anchor(url)}${url}</a>`);
+                el.innerHTML = html;
             }
 
+            // Resolve an on-device session, or null when on-device can't serve this
+            // request (unsupported, unavailable, model still downloading, create failed).
+            // A null return is the single signal to fall back to the cloud — no error strings.
             async function ensureSession() {
                 if (session) return session;
-                if (!('LanguageModel' in self)) throw new Error('unsupported');
+                if (!('LanguageModel' in self)) return null;
 
                 const availability = await LanguageModel.availability();
                 console.log('[Ask AI] LanguageModel.availability():', availability);
-                if (availability === 'unavailable') throw new Error('unavailable');
-                if (availability !== 'available') setStatus('Preparing on-device model…');
+                if (availability === 'unavailable') return null;
 
-                const opts = {
-                    initialPrompts: [{ role: 'system', content: SYSTEM_PROMPT }],
-                    monitor(m) {
-                        m.addEventListener('downloadprogress', e => {
-                            setStatus('Downloading on-device model… ' + Math.round(e.loaded * 100) + '%');
-                        });
-                    }
-                };
+                // Model isn't downloaded yet ('downloadable' / 'downloading'). Don't block the
+                // user behind a large download — kick it off in the background and answer from
+                // the cloud for now. It upgrades to on-device when ready.
+                if (availability !== 'available') {
+                    startBackgroundDownload();
+                    return null;
+                }
 
+                // Model is downloaded and ready — creating a session is fast (no big download).
+                const opts = { initialPrompts: [{ role: 'system', content: SYSTEM_PROMPT }] };
                 // create() can fail transiently ("unable to create a session"); retry once.
                 try {
                     session = await LanguageModel.create(opts);
@@ -552,12 +668,10 @@ B.E., PSG College of Technology, 2016.
                     try {
                         session = await LanguageModel.create(opts);
                     } catch (e2) {
-                        session = null;
                         console.error('[Ask AI] create() failed (availability was "' + availability + '"):', e2);
-                        throw new Error('create-failed');
+                        return null;
                     }
                 }
-                setStatus(null);
                 return session;
             }
 
@@ -576,47 +690,36 @@ B.E., PSG College of Technology, 2016.
                 ask(input.value);
             });
 
-            // Progressive enhancement: reveal the AI entry points (hero ask-bar + chat
-            // launcher) only when the on-device model is ready. If it's mid-download, drive
-            // it to completion (logging %), then reveal automatically — no reload needed.
+            // Reveal the AI entry points (hero ask-bar + chat launcher). There's now a
+            // guaranteed server fallback, so the widget always shows. We still prepare/drive
+            // the on-device model when possible — it's just no longer a gate for the UI.
             (async function reveal() {
+                document.body.classList.add('ai-ready');
                 try {
                     if (!('LanguageModel' in self)) {
-                        console.log('[Ask AI] LanguageModel not supported — hiding AI UI.');
+                        console.log('[Ask AI] LanguageModel not supported — using server fallback.');
                         return;
                     }
                     const a = await LanguageModel.availability();
                     console.log('[Ask AI] init availability:', a);
 
                     if (a === 'available') {
-                        document.body.classList.add('ai-ready');
                         return;
                     }
 
                     if (a === 'downloading') {
-                        // Model is already downloading on this device. Creating a session
-                        // attaches to (and drives) that download; it resolves when ready.
-                        console.log('[Ask AI] model downloading — driving it to completion; UI appears when ready.');
-                        try {
-                            session = await LanguageModel.create({
-                                initialPrompts: [{ role: 'system', content: SYSTEM_PROMPT }],
-                                monitor(m) {
-                                    m.addEventListener('downloadprogress', e => {
-                                        console.log('[Ask AI] download ' + Math.round(e.loaded * 100) + '%');
-                                    });
-                                }
-                            });
-                            document.body.classList.add('ai-ready');
-                            console.log('[Ask AI] model ready — UI revealed.');
-                        } catch (e) {
-                            console.warn('[Ask AI] driving the download failed — staying hidden.', e);
-                        }
+                        // Already downloading on this device — attach to it in the background
+                        // so it finishes; meanwhile the cloud answers any questions instantly.
+                        console.log('[Ask AI] model downloading — finishing it in the background; cloud handles questions until ready.');
+                        startBackgroundDownload();
                         return;
                     }
 
-                    console.log('[Ask AI] model not ready ("' + a + '") — hiding AI UI.');
+                    // 'downloadable' — don't auto-pull the (large) model for visitors who may
+                    // never chat. The cloud answers; the download starts on first question.
+                    console.log('[Ask AI] on-device model not ready ("' + a + '") — cloud handles questions; download starts on first ask.');
                 } catch (e) {
-                    console.warn('[Ask AI] availability check failed — hiding AI UI.', e);
+                    console.warn('[Ask AI] availability check failed — server fallback remains.', e);
                 }
             })();
 
@@ -633,29 +736,51 @@ B.E., PSG College of Technology, 2016.
 
                 try {
                     const s = await ensureSession();
+                    // No on-device session — answer from the cloud for now.
+                    if (!s) { await askServer(q, bot); return; }
+
                     bot.classList.remove('typing');
                     bot.textContent = '';
+                    if (engine) engine.textContent = ENGINE_LOCAL;
                     const stream = s.promptStreaming(q);
                     for await (const chunk of stream) {
                         bot.textContent += chunk;     // chunks are deltas in Chrome 138+
-                        log.scrollTop = log.scrollHeight;
+                        scrollToBottom();
                     }
-                    if (!bot.textContent) bot.textContent = '(no response)';
+                    const finalText = bot.textContent.trim();
+                    if (!finalText) bot.textContent = '(no response)';
+                    else { renderRich(bot, finalText); logExchange(q, finalText); }   // fire-and-forget log
                 } catch (err) {
                     bot.classList.remove('typing');
-                    if (err.message === 'unsupported') {
-                        bot.textContent = "Your browser doesn't have on-device AI yet. This needs Chrome 138+ on desktop with the built-in Gemini Nano model — or reach out on LinkedIn!";
-                    } else if (err.message === 'unavailable') {
-                        bot.textContent = "On-device AI isn't available in this browser yet — it needs a recent desktop Chrome with the built-in model enabled. In the meantime, connect with Ranjith on LinkedIn!";
-                    } else if (err.message === 'create-failed') {
-                        bot.textContent = "The on-device model couldn't start a session right now. Quick fixes: fully quit and reopen Chrome, then open chrome://components and check that \"Optimization Guide On Device Model\" shows a version (not 0.0.0.0) — click \"Check for update\" if it doesn't. Then try again.";
-                    } else {
-                        bot.textContent = 'Something went wrong: ' + err.message;
-                    }
+                    bot.textContent = 'Something went wrong: ' + err.message;
                 } finally {
                     busy = false; send.disabled = false;
-                    setStatus(null);
                     input.focus();
+                }
+            }
+
+            // Server fallback via POST /ask (non-streaming). The server logs the
+            // exchange itself, so we do NOT also call /log here.
+            async function askServer(q, bot) {
+                bot.classList.add('typing');
+                bot.textContent = '…';
+                try {
+                    const res = await postJson('/ask', { question: q });
+                    const data = await res.json().catch(() => null);
+                    bot.classList.remove('typing');
+                    if (res.ok && data?.answer) {
+                        renderRich(bot, data.answer.trim());
+                        if (engine) engine.textContent = ENGINE_CLOUD;
+                    } else {
+                        // Server returned a friendly, user-safe message.
+                        bot.textContent = data?.message
+                            || "I can't answer right now — feel free to reach out to me on LinkedIn.";
+                    }
+                } catch (e) {
+                    // Network failure (offline, etc.) — last-resort static message.
+                    console.warn('[Ask AI] /ask failed:', e);
+                    bot.classList.remove('typing');
+                    bot.textContent = "I can't reach my brain right now — my on-device model isn't available and the server didn't respond. In the meantime, connect with me on LinkedIn!";
                 }
             }
         })();

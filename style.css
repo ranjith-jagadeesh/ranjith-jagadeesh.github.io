@@ -228,16 +228,6 @@ body.ai-ready .hero-ask { display: flex; }
     border-color: rgba(124,111,224,0.3); transform: translateY(-1px);
 }
 
-.ask-badge {
-    display: inline-flex; align-items: center; gap: .4rem;
-    font-family: var(--font-mono); font-size: .62rem;
-    color: var(--muted); letter-spacing: .06em;
-}
-.ask-badge-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--lavender); animation: blink 2.5s ease-in-out infinite;
-}
-
 /* Credibility strip */
 .hero-proof {
     display: flex; align-items: center; justify-content: flex-start;
@@ -666,8 +656,8 @@ body.ai-ready .chat { display: block; }
 
 .chat-panel {
     position: absolute; bottom: calc(56px + 1rem); right: 0;
-    width: min(360px, calc(100vw - 3rem));
-    height: 480px; max-height: calc(100vh - 8rem);
+    width: min(420px, calc(100vw - 3rem));
+    height: 580px; max-height: calc(100vh - 7rem);
     background: var(--bg-nav);
     border: 1px solid var(--border);
     border-radius: 20px;
@@ -726,12 +716,12 @@ body.ai-ready .chat { display: block; }
     border-bottom-right-radius: 4px;
 }
 .chat-msg.typing { color: var(--muted); animation: blink 1.2s ease-in-out infinite; }
-
-.chat-status {
-    font-family: var(--font-mono); font-size: .68rem;
-    color: var(--lavender); text-align: center;
-    padding: .5rem 1.125rem; border-top: 1px solid var(--border);
+.chat-msg a {
+    color: var(--lavender); font-weight: 500;
+    text-decoration: underline; text-underline-offset: 2px;
+    word-break: break-word;
 }
+.chat-msg.user a { color: #fff; }
 
 .chat-form {
     display: flex; align-items: center; gap: .5rem;
@@ -760,6 +750,10 @@ body.ai-ready .chat { display: block; }
 
 @media (max-width: 768px) {
     .chat { bottom: 1rem; right: 1rem; }
+    .chat-panel {
+        width: min(420px, calc(100vw - 2rem));
+        height: min(580px, calc(100vh - 6rem));
+    }
 }
 
 /* ── SELECTION ── */
