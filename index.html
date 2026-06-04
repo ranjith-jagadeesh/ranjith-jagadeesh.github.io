@@ -352,6 +352,43 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
+            // ── Visit beacon ──────────────────────────────────────────────
+            // Fire-and-forget one page-load record to the edge function. IP,
+            // country and timestamp are derived server-side; we send the
+            // anonymous per-tab session id (shared with the chat) and the path.
+            (function recordVisit() {
+                const API_BASE = 'https://nvqacdupcxycxioxjxtw.supabase.co/functions/v1/digital-twin';
+                const KEY = 'ask-ranjith-session';
+                let session = null;
+                try {
+                    session = sessionStorage.getItem(KEY);
+                    if (!session && crypto.randomUUID) {
+                        session = crypto.randomUUID();
+                        sessionStorage.setItem(KEY, session);
+                    }
+                } catch {}
+                // One visit per tab session, so a SPA-style revisit isn't double-counted.
+                try { if (sessionStorage.getItem('visit-logged')) return; } catch {}
+                const payload = JSON.stringify({
+                    session_id: session,
+                    path: location.pathname + location.hash,
+                    client_info: {
+                        languages: navigator.languages ?? [navigator.language],
+                        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                        screen: { w: screen.width, h: screen.height, dpr: devicePixelRatio },
+                        viewport: { w: innerWidth, h: innerHeight },
+                    },
+                });
+                fetch(API_BASE + '/visit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: payload,
+                    keepalive: true,
+                })
+                    .then(() => { try { sessionStorage.setItem('visit-logged', '1'); } catch {} })
+                    .catch(e => console.warn('[visit] beacon failed (ignored):', e));
+            })();
+
             // ── Custom cursor (follows mouse exactly) ──
             const cursor = document.getElementById('cursor');
 
