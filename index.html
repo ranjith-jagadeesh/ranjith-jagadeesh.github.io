@@ -340,8 +340,6 @@
                 <div class="chat-msg bot">Hey, I'm Ranjith — well, my digital twin, running right inside your browser. Ask me anything about my work and experience.</div>
             </div>
 
-            <div id="chat-status" class="chat-status" hidden></div>
-
             <form id="chat-form" class="chat-form">
                 <input id="chat-input" class="chat-input" type="text" placeholder="Ask a question…" autocomplete="off" />
                 <button id="chat-send" class="chat-send" type="submit" aria-label="Send">
@@ -471,13 +469,34 @@
             const form   = document.getElementById('chat-form');
             const input  = document.getElementById('chat-input');
             const send   = document.getElementById('chat-send');
-            const status = document.getElementById('chat-status');
             const engine = document.getElementById('chat-engine');
 
             // ── Server fallback (Supabase edge function) ──────────────────────
             // When on-device Gemini Nano isn't available, answers come from the
             // deployed function (Groq); on-device answers are logged after the fact.
             const API_BASE = 'https://nvqacdupcxycxioxjxtw.supabase.co/functions/v1/digital-twin';
+            const ENGINE_LOCAL = 'On-device · Gemini Nano';
+            const ENGINE_CLOUD = 'Cloud · Llama';
+
+            // Pin the transcript to the latest message — coalesced into one reflow per
+            // frame so token-by-token streaming doesn't thrash layout on every chunk.
+            let scrollQueued = false;
+            function scrollToBottom() {
+                if (scrollQueued) return;
+                scrollQueued = true;
+                requestAnimationFrame(() => { scrollQueued = false; log.scrollTop = log.scrollHeight; });
+            }
+
+            // POST a JSON payload to an API route, auto-attaching the session id and
+            // client info every call shares. Returns the Response (or throws on network failure).
+            async function postJson(route, payload) {
+                const client_info = await collectClientInfo();
+                return fetch(API_BASE + route, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...payload, session_id: getSessionId(), client_info }),
+                });
+            }
 
             // Anonymous, per-tab session id so a multi-turn chat is one thread.
             function getSessionId() {
@@ -524,15 +543,7 @@
             // Fire-and-forget: record an on-device Q&A. Never disrupt the chat UX.
             async function logExchange(question, answer) {
                 try {
-                    const client_info = await collectClientInfo();
-                    await fetch(API_BASE + '/log', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            question, answer, model: 'gemini-nano',
-                            session_id: getSessionId(), client_info,
-                        }),
-                    });
+                    await postJson('/log', { question, answer, model: 'gemini-nano' });
                 } catch (e) {
                     console.warn('[Ask AI] /log failed (ignored):', e);
                 }
@@ -604,12 +615,8 @@ B.E., PSG College of Technology, 2016.
                 el.className = 'chat-msg ' + who;
                 el.textContent = text;
                 log.appendChild(el);
-                log.scrollTop = log.scrollHeight;
+                scrollToBottom();
                 return el;
-            }
-            function setStatus(text) {
-                status.hidden = !text;
-                if (text) status.textContent = text;
             }
 
             // Render answer text with clickable links. Everything is HTML-escaped first
@@ -631,20 +638,23 @@ B.E., PSG College of Technology, 2016.
                 el.innerHTML = html;
             }
 
+            // Resolve an on-device session, or null when on-device can't serve this
+            // request (unsupported, unavailable, model still downloading, create failed).
+            // A null return is the single signal to fall back to the cloud — no error strings.
             async function ensureSession() {
                 if (session) return session;
-                if (!('LanguageModel' in self)) throw new Error('unsupported');
+                if (!('LanguageModel' in self)) return null;
 
                 const availability = await LanguageModel.availability();
                 console.log('[Ask AI] LanguageModel.availability():', availability);
-                if (availability === 'unavailable') throw new Error('unavailable');
+                if (availability === 'unavailable') return null;
 
                 // Model isn't downloaded yet ('downloadable' / 'downloading'). Don't block the
-                // user behind a large download — kick it off in the background and tell the
-                // caller to answer from the cloud for now. It upgrades to on-device when ready.
+                // user behind a large download — kick it off in the background and answer from
+                // the cloud for now. It upgrades to on-device when ready.
                 if (availability !== 'available') {
                     startBackgroundDownload();
-                    throw new Error('downloading');
+                    return null;
                 }
 
                 // Model is downloaded and ready — creating a session is fast (no big download).
@@ -658,12 +668,10 @@ B.E., PSG College of Technology, 2016.
                     try {
                         session = await LanguageModel.create(opts);
                     } catch (e2) {
-                        session = null;
                         console.error('[Ask AI] create() failed (availability was "' + availability + '"):', e2);
-                        throw new Error('create-failed');
+                        return null;
                     }
                 }
-                setStatus(null);
                 return session;
             }
 
@@ -728,30 +736,25 @@ B.E., PSG College of Technology, 2016.
 
                 try {
                     const s = await ensureSession();
+                    // No on-device session — answer from the cloud for now.
+                    if (!s) { await askServer(q, bot); return; }
+
                     bot.classList.remove('typing');
                     bot.textContent = '';
-                    if (engine) engine.textContent = 'On-device · Gemini Nano';
+                    if (engine) engine.textContent = ENGINE_LOCAL;
                     const stream = s.promptStreaming(q);
                     for await (const chunk of stream) {
                         bot.textContent += chunk;     // chunks are deltas in Chrome 138+
-                        log.scrollTop = log.scrollHeight;
+                        scrollToBottom();
                     }
                     const finalText = bot.textContent.trim();
                     if (!finalText) bot.textContent = '(no response)';
                     else { renderRich(bot, finalText); logExchange(q, finalText); }   // fire-and-forget log
                 } catch (err) {
-                    // On-device model isn't ready (missing, unavailable, still downloading,
-                    // or failed to start) — answer from the cloud for now.
-                    if (err.message === 'unsupported' || err.message === 'unavailable'
-                        || err.message === 'downloading' || err.message === 'create-failed') {
-                        await askServer(q, bot);
-                    } else {
-                        bot.classList.remove('typing');
-                        bot.textContent = 'Something went wrong: ' + err.message;
-                    }
+                    bot.classList.remove('typing');
+                    bot.textContent = 'Something went wrong: ' + err.message;
                 } finally {
                     busy = false; send.disabled = false;
-                    setStatus(null);
                     input.focus();
                 }
             }
@@ -759,23 +762,15 @@ B.E., PSG College of Technology, 2016.
             // Server fallback via POST /ask (non-streaming). The server logs the
             // exchange itself, so we do NOT also call /log here.
             async function askServer(q, bot) {
-                setStatus(null);
                 bot.classList.add('typing');
                 bot.textContent = '…';
                 try {
-                    const client_info = await collectClientInfo();
-                    const res = await fetch(API_BASE + '/ask', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            question: q, session_id: getSessionId(), client_info,
-                        }),
-                    });
+                    const res = await postJson('/ask', { question: q });
                     const data = await res.json().catch(() => null);
                     bot.classList.remove('typing');
                     if (res.ok && data?.answer) {
                         renderRich(bot, data.answer.trim());
-                        if (engine) engine.textContent = 'Cloud · Llama';
+                        if (engine) engine.textContent = ENGINE_CLOUD;
                     } else {
                         // Server returned a friendly, user-safe message.
                         bot.textContent = data?.message
